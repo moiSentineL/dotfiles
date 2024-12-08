@@ -8,7 +8,7 @@
     "spacing": 5, // Gaps between modules (4px)
     "modules-left": ["custom/launcher", "cpu", "memory", "hyprland/workspaces", "custom/weather"],
     "modules-center": ["custom/spotify", "custom/tomato"],
-    "modules-right": ["tray", "backlight", "pulseaudio", "network", "battery", "clock", "custom/power-menu"],
+    "modules-right": ["tray", "bluetooth", "pulseaudio", "network", "battery", "clock", "custom/power-menu"],
     "hyprland/workspaces": {
       "format": "{icon}",
       "on-click": "activate",
