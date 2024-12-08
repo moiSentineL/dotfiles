@@ -1,0 +1,19 @@
+q
+set output_plugin=pulse
+set output_plugin=alsa
+add ~/Music/
+set status_display_program=cmusfm
+set output_plugin=jack
+set output_plugin=oss
+add ~/Music
+update
+set status_display_program=/home/nibir/.local/cmus-now.sh
+set display_artist_sort_name=falsers
+live-filter
+view
+:set status_display_program=cmusfm
+set
+colorscheme catppuccin
+a output_plugin=alsa
+a ~/Music
+quit
