@@ -117,6 +117,7 @@
 
    "custom/spotify": {
     "exec": "python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
+    // "exec": "~/.config/waybar/scripts/scroll-player.sh",
     "format": "{}  ",
     "return-type": "json",
     "on-click": "playerctl play-pause",
