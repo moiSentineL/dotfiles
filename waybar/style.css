@@ -67,6 +67,7 @@ window#waybar.hidden {
 #custom-hyprPicker,
 #custom-power-menu,
 #custom-spotify,
+#custom-cmus,
 #custom-weather,
 #custom-weather.severe,
 #custom-weather.sunnyDay,
@@ -233,6 +234,10 @@ label:focus {
   background-color: #66cc99;
 }
 
+#custom-media.custom-cmus {
+  background-color: #66cc99;
+}
+
 #custom-media.custom-vlc {
   background-color: #ffa000;
 }
@@ -301,6 +306,13 @@ label:focus {
 }
 
 #custom-spotify {
+  padding: 0 10px;
+  margin: 0 4px;
+  /* background-color: #1db954; */
+  color: #abb2bf;
+}
+
+#custom-cmus {
   padding: 0 10px;
   margin: 0 4px;
   /* background-color: #1db954; */

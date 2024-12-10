@@ -7,7 +7,7 @@
     "margin-right": 10,
     "spacing": 5, // Gaps between modules (4px)
     "modules-left": ["custom/launcher", "cpu", "memory", "hyprland/workspaces", "custom/weather"],
-    "modules-center": ["custom/spotify", "custom/tomato"],
+    "modules-center": ["custom/spotify", "custom/cmus", "custom/tomato"],
     "modules-right": ["tray", "pulseaudio", "network", "battery", "clock", "custom/power-menu"],
     "hyprland/workspaces": {
       "format": "{icon}",
@@ -119,6 +119,14 @@
     "exec": "python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
     // "exec": "~/.config/waybar/scripts/scroll-player.sh",
     "format": "{}  ",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-double-click-right": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    },
+   "custom/cmus": {
+    "exec": "python3 ~/.config/waybar/scripts/mediaplayer.py --player cmus",
+    "format": "{}  ",
     "return-type": "json",
     "on-click": "playerctl play-pause",
     "on-double-click-right": "playerctl next",
