@@ -6,9 +6,9 @@
     "margin-bottom": 0,
     "margin-right": 10,
     "spacing": 5, // Gaps between modules (4px)
-    "modules-left": ["custom/launcher", "cpu", "memory", "hyprland/workspaces", "custom/weather"],
+    "modules-left": ["custom/launcher", "hyprland/workspaces", "custom/weather", "custom/timew"], // cpu and memory should be here
     "modules-center": ["custom/spotify", "custom/cmus", "custom/tomato"],
-    "modules-right": ["tray", "pulseaudio", "network", "battery", "clock", "custom/power-menu"],
+    "modules-right": ["tray", "pulseaudio", "network", "clock", "custom/power-menu"],
     "hyprland/workspaces": {
       "format": "{icon}",
       "on-click": "activate",
@@ -110,7 +110,7 @@
     },
     "custom/weather": {
       "exec": "python3 ~/.config/waybar/scripts/weather.py",
-      "restart-interval": 300,
+      "restart-interval": 600,
       "return-type": "json",
       "on-click": "xdg-open https://weather.com/en-IN/weather/today/l/a319796a4173829988d68c4e3a5f90c1b6832667ea7aaa201757a1c887ec667a"
     },
@@ -144,6 +144,10 @@
       "exec": "tomato -t",
       "format": "{}",
       "restart-interval": 0,
-
     }, 
+    "custom/timew": {
+      "exec": "echo $(timew | head -n1 | sed 's/^Tracking //') $(timew | awk '/Total/{print $NF}')",
+      "format": "  {}",
+	    "restart-interval": 0
+    },
 }

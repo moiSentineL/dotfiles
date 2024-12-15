@@ -69,6 +69,7 @@ window#waybar.hidden {
 #custom-spotify,
 #custom-cmus,
 #custom-weather,
+#custom-timew,
 #custom-weather.severe,
 #custom-weather.sunnyDay,
 #custom-weather.clearNight,
@@ -318,6 +319,12 @@ label:focus {
   /* background-color: #1db954; */
   color: #abb2bf;
 }
+
+#custom-timew {
+  color: #ebcb8b;
+  background-color: #1f2530;
+}
+
 
 #keyboard-state > label.locked {
   background: rgba(0, 0, 0, 0.2);
