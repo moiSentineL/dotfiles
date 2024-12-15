@@ -20,7 +20,7 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-  padding: 0 5px;
+  padding: 0 6px;
   color: #7984A4;
   background-color: transparent;
   /* Use box-shadow instead of border so the text isn't offset */
@@ -89,7 +89,7 @@ window#waybar.hidden {
 
 #window,
 #workspaces {
-  margin: 0 4px;
+  margin: 0 5px;
   border-radius: 7.8px;
   background-color: #1f2530;
 }

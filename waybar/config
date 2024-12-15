@@ -6,7 +6,7 @@
     "margin-bottom": 0,
     "margin-right": 10,
     "spacing": 5, // Gaps between modules (4px)
-    "modules-left": ["custom/launcher", "hyprland/workspaces", "custom/weather", "custom/timew"], // cpu and memory should be here
+    "modules-left": ["custom/launcher", "hyprland/workspaces", "custom/timew"], // cpu, memory and custom/weather should be here
     "modules-center": ["custom/spotify", "custom/cmus", "custom/tomato"],
     "modules-right": ["tray", "pulseaudio", "network", "clock", "custom/power-menu"],
     "hyprland/workspaces": {
@@ -148,6 +148,7 @@
     "custom/timew": {
       "exec": "echo $(timew | head -n1 | sed 's/^Tracking //') $(timew | awk '/Total/{print $NF}')",
       "format": "  {}",
-	    "restart-interval": 0
+	    "restart-interval": 0,
+      "on-click-right": "timew stop"
     },
 }
