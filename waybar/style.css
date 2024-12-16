@@ -321,6 +321,7 @@ label:focus {
 }
 
 #custom-timew {
+  padding: 0 10px;
   color: #ebcb8b;
   background-color: #1f2530;
 }

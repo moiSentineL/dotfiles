@@ -149,6 +149,7 @@
       "exec": "echo $(timew | head -n1 | sed 's/^Tracking //') $(timew | awk '/Total/{print $NF}')",
       "format": "  {}",
 	    "restart-interval": 0,
-      "on-click-right": "timew stop"
+      "on-click-right": "timew stop",
+      "on-double-click": "timew continue"
     },
 }
