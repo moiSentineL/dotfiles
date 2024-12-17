@@ -1,0 +1,3 @@
+[submodule "config/mpv"]
+	path = config/mpv
+	url = https://github.com/moiSentineL/mpv-settings.git
