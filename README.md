@@ -2,23 +2,23 @@
 Config files for Hyprland, waybar, kitty and many more.
 This is an iteration of [1amSimp1e](https://github.com/1amSimp1e)'s [Late Night](https://github.com/1amSimp1e/dots/tree/late-night-%F0%9F%8C%83).
 
-![Main](./assets/main.png)
+![Main](./assets/main.jpg)
 
 <details>
   <summary>More Screenshots</summary>
 
   #### Firefox
-  ![Firefox 1](./assets/ff-blog.png)
-  ![Firefox 2](./assets/ff-github.png)
+  ![Firefox 1](./assets/ff-blog.jpg)
+  ![Firefox 2](./assets/ff-github.jpg)
   
   #### Terminals
-  ![Term](./assets/term.png)
+  ![Term](./assets/term.jpg)
 
   #### Pomo
-  ![Pomo](./assets/pomo.png)
+  ![Pomo](./assets/pomo.jpg)
 
   #### Wallpaper
-  ![wall](./assets/wall.png)
+  ![wall](./assets/wall.jpg)
 </details>
 
 ## Philosophy
