@@ -2,7 +2,7 @@
 # Run `sudo evremap list-devices` to see the devices available
 # on your system.
 device_name = "Gaming KB  Gaming KB"
-phys = "usb-0000:00:14.0-4.4/input0"
+phys = "usb-0000:00:14.0-4.1/input0"
 
 # If you have multiple devices with the same name, you can optionally
 # specify the `phys` value that is printed by the `list-devices` subcommand
