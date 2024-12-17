@@ -57,6 +57,6 @@ They are usually tracked via Github issues, but...
 - [ ] taskwarrior integration #3
 - [ ] make screen-sharing work #4
 - [ ] add `zsh`-related config #5
-- [ ] better file-structure #6
+- [x] better file-structure #6
 
 ## README in progress!
