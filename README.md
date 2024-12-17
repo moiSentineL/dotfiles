@@ -43,6 +43,7 @@ Here are some of the rules:
 	- [Timewarrior](https://timewarrior.net/) integration (**needs improvement**)
 	- Better Workspaces
 - [greenclip](https://github.com/erebe/greenclip): rofi clipboard
+- [mpv-settings](https://github.com/moiSentineL/mpv-settings): nice mpv config
 ### What doesn't work
 - Screen-sharing. Mostly probably because I don't update frequently (sorry!)
 - Any NVIDIA-Wayland error. Can't do nothing about it.
@@ -52,11 +53,8 @@ The dotfiles are currently *not* at a production stage. I haven't tested it on a
 
 **Use at your own risk! Always make a backup first!** Read the source files before.
 ## Roadmap
-They are usually tracked via Github issues, but...
-- [ ] neovim config #2
-- [ ] taskwarrior integration #3
-- [ ] make screen-sharing work #4
-- [ ] add `zsh`-related config #5
-- [x] better file-structure #6
+Check Github [Issues](https://github.com/moiSentineL/dotfiles/issues)
 
-## README in progress!
+---
+
+<sup>stay frosty.</sup>
