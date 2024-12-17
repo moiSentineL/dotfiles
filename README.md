@@ -8,8 +8,8 @@ This is an iteration of [1amSimp1e](https://github.com/1amSimp1e)'s [Late Night]
   <summary>More Screenshots</summary>
 
   #### Firefox
-  ![Firefox 1](./assets/ff-blog)
-  ![Firefox 2](./assets/ff-github)
+  ![Firefox 1](./assets/ff-blog.png)
+  ![Firefox 2](./assets/ff-github.png)
   
   #### Terminals
   ![Term](./assets/term.png)
