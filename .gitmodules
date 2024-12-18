@@ -1,3 +1,6 @@
 [submodule "config/mpv"]
 	path = config/mpv
 	url = https://github.com/moiSentineL/mpv-settings.git
+[submodule "config/nvim"]
+	path = config/nvim
+	url = git@github.com:moiSentineL/kickstart.nvim.git
