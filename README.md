@@ -1,5 +1,6 @@
 # Nibir's Dotfiles
-Config files for Hyprland, waybar, kitty and many more.
+or "**How to NOT use KDE Plasma ever again.**"
+
 This is an iteration of [1amSimp1e](https://github.com/1amSimp1e)'s [Late Night](https://github.com/1amSimp1e/dots/tree/late-night-%F0%9F%8C%83).
 
 ![Main](./assets/main.jpg)
@@ -34,6 +35,7 @@ Here are some of the rules:
 	- Includes hypridle, hyprlock, hyprpaper, grimblast, etc.
 	- NVIDIA config (follow Arch wiki)
 	- Improved windowrules
+	- Awesome-like [split-monitor-workspaces](https://github.com/Duckonaut/split-monitor-workspaces)
 - [Colemak [ED] + Extend Layers](https://dreymar.colemak.org/); using [evremap](https://github.com/wez/evremap) for remapping keys (Caps Lock -> tapping).
 - [hyprshade](https://github.com/loqusion/hyprshade) shaders: grayscale and blue-light.
 - Custom [waybar](https://github.com/Alexays/Waybar) modules:
