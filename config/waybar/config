@@ -8,7 +8,7 @@
     "spacing": 5, // Gaps between modules (4px)
     "modules-left": ["custom/launcher", "hyprland/workspaces", "custom/timew"], // cpu, memory and custom/weather should be here
     "modules-center": ["custom/spotify", "custom/cmus", "custom/tomato"],
-    "modules-right": ["tray", "pulseaudio", "network", "clock", "custom/power-menu"],
+    "modules-right": ["custom/obs-trigger", "tray", "pulseaudio", "network", "clock", "custom/power-menu"],
     "hyprland/workspaces": {
       "format": "{icon}",
       "on-click": "activate",
@@ -152,4 +152,8 @@
       "on-click-right": "timew stop",
       "on-double-click": "timew continue"
     },
+    "custom/obs-trigger":{
+      "format": "<span color='#6a92d7'></span>",
+      "on-click": "bash ~/.dotfiles/scripts/obs/obs-text-off.sh"
+    }
 }

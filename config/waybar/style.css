@@ -70,6 +70,7 @@ window#waybar.hidden {
 #custom-cmus,
 #custom-weather,
 #custom-timew,
+#custom-obs-trigger,
 #custom-weather.severe,
 #custom-weather.sunnyDay,
 #custom-weather.clearNight,
@@ -326,6 +327,11 @@ label:focus {
   background-color: #1f2530;
 }
 
+#custom-obs-trigger {
+  padding: 0 10px;
+  color: #ebcb8b; 
+  background-color: #1f2530;
+}
 
 #keyboard-state > label.locked {
   background: rgba(0, 0, 0, 0.2);
