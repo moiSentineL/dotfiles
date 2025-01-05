@@ -154,6 +154,6 @@
     },
     "custom/obs-trigger":{
       "format": "<span color='#6a92d7'></span>",
-      "on-click": "bash ~/.dotfiles/scripts/obs/obs-text-off.sh"
+      "on-click": "bash ~/.config/waybar/scripts/obs-text-off.sh"
     }
 }
