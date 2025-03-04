@@ -1,5 +1,5 @@
-HOST=192.168.10.6
 PW="bruhmoment"
 PORT=4455
 
-obs-cli --host $HOST --port $PORT --password $PW scene switch break_scene
+~/.dotfiles/scripts/obs/log.sh
+obs-cli --host $OBS_HOST --port $PORT --password $PW scene switch break_scene

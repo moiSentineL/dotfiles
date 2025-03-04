@@ -1,0 +1,6 @@
+2025-01-27 21:22 - DEBUG - Running job Job(interval=2, unit=seconds, do=remind_dinner, args=(), kwargs={})
+2025-01-27 21:22 - DEBUG - remind_dinner done
+2025-01-27 21:22 - DEBUG - Running job Job(interval=2, unit=seconds, do=remind_dinner, args=(), kwargs={})
+2025-01-27 21:22 - DEBUG - remind_dinner done
+2025-01-27 21:22 - DEBUG - Running job Job(interval=2, unit=seconds, do=remind_dinner, args=(), kwargs={})
+2025-01-27 21:22 - DEBUG - remind_dinner done
