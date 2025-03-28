@@ -9,7 +9,7 @@ CURRENT_FILE="/tmp/pomodoro_current.txt"
 initialize() {
     echo "0" > "$TEMP_FILE"                 # Reset session count
     echo "3" > "$TOTAL_FILE"                # Default planned sessions
-    echo "Pomodoro sessions reset to 0 with a planned total of 3."
+    echo "Pomodoro sessions reset to 1 with a planned total of 3."
 }
 
 stuff() {
@@ -23,9 +23,20 @@ echo "$new_sessions" > "$TEMP_FILE"
 echo "$new_sessions/$total_sessions" > "$CURRENT_FILE"
 }
 
+reset() {
+    # Fetch the planned total sessions
+    total_sessions=$(cat "$TOTAL_FILE")
+
+    echo "1" > "$TEMP_FILE"                 # Reset session count
+    # Increment the session count
+    current_sessions=$(cat "$TEMP_FILE")
+    echo "$current_sessions" > "$TEMP_FILE"
+    echo "$current_sessions/$total_sessions" > "$CURRENT_FILE"
+}
+
 # Check for manual reset command
 if [ "$1" = "reset" ]; then
-    initialize
+    reset
     exit 0
 fi
 

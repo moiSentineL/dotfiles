@@ -19,6 +19,9 @@ log.basicConfig(
 def remind_dinner():
     os.system("notify-send DINNERRR 'go remind ma-deuta' -u critical")
 
+def remind_call_end():
+    os.system("notify-send 'CUT THE CALL' 'dude stop doing that shit! you promised!' -u critical")
+
 def stuff():
     print('fuck')
 
