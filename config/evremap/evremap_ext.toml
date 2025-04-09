@@ -14,5 +14,5 @@ phys = "usb-0000:00:14.0-4.1/input0"
 # Both `tap` and `hold` can expand to multiple output keys.
 [[dual_role]]
 input = "KEY_CAPSLOCK"
-hold = ["KEY_RIGHTALT"]
+hold = ["KEY_CAPSLOCK"]
 tap = ["KEY_BACKSPACE"]
