@@ -4,12 +4,14 @@
 # fullscreen mode I was still able to see the windows behind it, I think this
 # looks kind of gross so that's why this exists.
 
+P_PID=$(xprop -name "main-bar" _NET_WM_PID | awk -F ' = ' '{print $2}')
+
 HideBar() {
-  polybar-msg cmd hide
+  polybar-msg -p $P_PID cmd hide
 }
 
 ShowBar() {
-  polybar-msg cmd show
+  polybar-msg -p $P_PID cmd show
 }
 
 HideNodes() {
