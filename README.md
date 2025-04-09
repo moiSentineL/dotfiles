@@ -6,7 +6,8 @@ Check the [hyprland](https://github.com/moiSentineL/dotfiles/tree/hyprland) bran
 
 ---
 
-![](./assets/rice.mp4)
+https://github.com/user-attachments/assets/73c7ec94-f26b-4f96-9b8c-9ed78877c0f8
+
 
 <details>
   <summary>More Screenshots</summary>
