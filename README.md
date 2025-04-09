@@ -1,18 +1,20 @@
 # Nibir's Dotfiles
+### BSPWM Rice
 or "**How to NOT use KDE Plasma ever again.**"
 
-This is an iteration of [1amSimp1e](https://github.com/1amSimp1e)'s [Late Night](https://github.com/1amSimp1e/dots/tree/late-night-%F0%9F%8C%83).
+Check the [hyprland](https://github.com/moiSentineL/dotfiles/tree/hyprland) branch for my hyprland rice instead.
 
-![Main](./assets/main.jpg)
+---
+
+![](./assets/rice.mp4)
 
 <details>
   <summary>More Screenshots</summary>
 
   #### Firefox
   ![Firefox 1](./assets/ff-blog.jpg)
-  ![Firefox 2](./assets/ff-github.jpg)
   
-  #### Terminals
+  #### Terminal
   ![Term](./assets/term.jpg)
 
   #### Pomo
@@ -31,25 +33,18 @@ Here are some of the rules:
 - Generate friction for unwanted stuff, and make it easy to access the things that matter.
 - Transition to minimalism.
 ## Features
-- [Hypr-Ecosystem](https://hyprland.org/) for better integration and config:
-	- Includes hypridle, hyprlock, hyprpaper, grimblast, etc.
-	- NVIDIA config (follow Arch wiki)
-	- Improved windowrules
-	- Awesome-like [split-monitor-workspaces](https://github.com/Duckonaut/split-monitor-workspaces)
+- [BSPWM](https://github.com/baskerville/bspwm) + [Polybar](https://github.com/polybar/polybar)
+	- super speed multitasking
+	- simple and minimal config 
 - [Colemak [ED] + Extend Layers](https://dreymar.colemak.org/); using [evremap](https://github.com/wez/evremap) for remapping keys (Caps Lock -> tapping).
-- [hyprshade](https://github.com/loqusion/hyprshade) shaders: grayscale and blue-light.
-- Custom [waybar](https://github.com/Alexays/Waybar) modules:
-	- Custom Weather based on `$ADDRESS` env. variable
-	- Better Media Player controls: Spotify and [cmus](https://github.com/cmus/cmus).
+- Custom polybar modules:
 	- [Tomato.C](https://github.com/gabrielzschmitz/Tomato.C)
 	- [Timewarrior](https://timewarrior.net/) integration (**needs improvement**)
-	- Better Workspaces
-- [greenclip](https://github.com/erebe/greenclip): rofi clipboard
 - [mpv-settings](https://github.com/moiSentineL/mpv-settings): nice mpv config
 ### What doesn't work
-- Screen-sharing. Mostly probably because I don't update frequently (sorry!)
-- Any NVIDIA-Wayland error. Can't do nothing about it.
-- Electron Apps on Wayland are trash. I have to run Obsidian without GPU (`obsidian --disable-gpu`)
+- no screensaver / screenlock yet. sorry!
+- bindings are not yet configured *fully*.
+- no clipboard history function yet.
 ## Usage
 The dotfiles are currently *not* at a production stage. I haven't tested it on anything except my own PC. Though, you can use the source files for any information and tweaks. For example, the waybar modules.
 

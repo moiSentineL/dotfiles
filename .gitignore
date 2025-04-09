@@ -1,3 +1,2 @@
 .config/*
-config/cmus/cache
-config/cmus/search-history
+config/cmus/*
