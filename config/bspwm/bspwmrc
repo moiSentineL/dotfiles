@@ -28,7 +28,7 @@ xrandr --output HDMI-0 --primary --mode 1920x1080 --refresh 74.97 --pos 0x0 --ou
 redshift -l 26.44:92.03 &
 
 # scripts
-~/.config/bspwm/cleanfullscreen &
+bash ~/.config/bspwm/cleanfullscreen &
 bash ~/.config/bspwm/setkb.sh &
 python3 ~/.dotfiles/scripts/remindme.py &
 
@@ -68,7 +68,7 @@ firefox &
 qbittorrent &
 
 ## telegram-desktop
-bspc rule -a telegram-desktop desktop=^0 focus=off -o
+bspc rule -a telegram-desktop desktop=^10 focus=off -o
 telegram-desktop &
 
 ## easy effects
