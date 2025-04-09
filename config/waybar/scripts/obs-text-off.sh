@@ -1,1 +1,0 @@
-/home/nibir/.dotfiles/scripts/obs/obs-text-off.sh
