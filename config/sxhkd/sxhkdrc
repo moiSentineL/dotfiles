@@ -22,6 +22,10 @@ super + grave
 super + f
         firefox
 
+# launch dolphin
+super + d
+        dolphin
+
 #suspend
 super + shift + n
 	systemctl suspend -i
