@@ -1,0 +1,28 @@
+#!/bin/bash
+set -e
+
+# Get the currently active/primary monitor (as set by autorandr)
+MONITOR='eDP'
+
+# Kill any running polybar
+pkill -x polybar || true
+while pgrep -x polybar >/dev/null; do sleep 0.5; done
+
+# Launch polybar on the active monitor
+MONITOR=$MONITOR polybar second &
+
+sleep 2
+
+# Clean up ghost monitors and workspaces
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
+bspc config merge_overlapping_monitors true
+
+bspc monitor --reset-desktops 1 2 3 4 5 6
+
+# Set the wallpaper
+feh --bg-scale ~/.dotfiles/assets/mono.jpg &
+
+
+~/.config/bspwm/setkb.sh && sleep 2
+~/.config/bspwm/cleanfullscreen_second &
