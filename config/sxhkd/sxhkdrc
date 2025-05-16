@@ -8,27 +8,30 @@ super + Return
 
 # program launcher
 super + @space
-	dmenu_run -b
+	dmenu_run -b -fn "EnvyCodeR Nerd Font Propo-11"
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
-super + grave 
-	bash /home/nibir/.dotfiles/scripts/xscreenshot.sh
+#super + grave 
+#	bash /home/nibir/.dotfiles/scripts/xscreenshot.sh
+
+super + Print
+	flameshot gui
 
 
 # launch firefox
-super + f
-        firefox
+#super + f
+#        firefox
 
 # launch dolphin
 super + d
         dolphin
 
 #suspend
-super + shift + n
-	systemctl suspend -i
+#super + shift + n
+#	systemctl suspend -i
 
 #
 # bspwm hotkeys
@@ -87,8 +90,8 @@ super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
-#super + {grave,Tab}
-#	bspc {node,desktop} -f last
+super + {grave,Tab}
+	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
 super + {;,y}
@@ -135,3 +138,49 @@ super + alt + shift + {n,u,e,i}
 # move a floating window
 #super + {Left,Down,Up,Right}
 #	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+
+#
+# Fn Special Keys
+#
+
+# --- Brightness ---
+XF86MonBrightnessUp
+    brightnessctl set +10
+
+XF86MonBrightnessDown
+    brightnessctl set 10-
+
+# --- Volume ---
+XF86AudioRaiseVolume
+    pamixer -i 5
+
+XF86AudioLowerVolume
+    pamixer -d 5
+
+XF86AudioMute
+    pamixer -t
+
+# --- Media Playback ---
+XF86AudioPlay
+    playerctl play-pause
+
+XF86AudioNext
+    playerctl next
+
+XF86AudioPrev
+    playerctl previous
+
+# --- Mic Mute ---
+XF86AudioMicMute
+    pamixer --default-source -t
+
+#
+# GROMIT MPX
+#
+
+{_,shift + ,ctrl +, alt + }F9
+	gromit-mpx -{v,c,t,q}
+
+{_, shift + }F8
+	gromit-mpx -{z,y}

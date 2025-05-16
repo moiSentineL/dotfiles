@@ -4,18 +4,12 @@
 pkill -x polybar
 
 # Wait for them to close
-while pgrep -x polybar >/dev/null; do sleep 1; done
+while pgrep -x polybar >/dev/null; do sleep 0.5; done
 
-# Launch first bar on Monitor 1
-MONITOR=eDP-1 polybar main &
+sleep 1
 
-# Launch second bar on Monitor 2
-MONITOR=HDMI-1 polybar second &
+polybar second &
 
-#if type "xrandr"; then
-# for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-#    MONITOR=$m polybar --reload example &
-#  done
-#else
-#  polybar --reload example &
-#fi
+sleep 1
+
+~/.config/bspwm/cleanfullscreen_second &

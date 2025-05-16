@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 📍 Configuration
-REPO_DIR="$HOME/Documents/war-hq/"  # change this path
+REPO_DIR="$HOME/docs/war-hq/"  # change this path
 EDITOR="nvim"                        # or code, nano, whatever you like
 
 # 🕓 Get current date

@@ -1,6 +1,6 @@
-#!/bin/zsh
+#!/bin/bash
 
-PLAYERS="spotify,cmus"
+PLAYERS="spotify,cmus,ncspot"
 COMMAND="playerctl --player=$PLAYERS status"
 
 write() {

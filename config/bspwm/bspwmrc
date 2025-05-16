@@ -9,11 +9,12 @@
 pkill polybar
 ~/.config/bspwm/polybar.sh &
 
-## sxhkd
-pgrep -x sxhkd > /dev/null || sxhkd &
+## keymaps & sxhkd
+bash ~/.config/bspwm/setkb.sh &
+pgrep -x sxhkd > /dev/null || sxhkd -m -1 &
 
 ## feh (wall)
-feh --bg-scale /mnt/Files/Media/Pictures/Background/mono.jpg &
+feh --bg-scale ~/.dotfiles/assets/mono.jpg &
 
 ## dunst (notif)
 dunst &
@@ -22,23 +23,25 @@ dunst &
 picom &
 
 ## command to get the second monitor
-xrandr --output HDMI-0 --primary --mode 1920x1080 --refresh 74.97 --pos 0x0 --output eDP-1-1 --mode 1920x1080 --pos 1920x0
+#xrandr --output HDMI-0 --primary --mode 1920x1080 --refresh 74.97 --pos 0x0 --output eDP-1-1 --mode 1920x1080 --pos 1920x0
 
 ## redshift (for bluelight filter)
 redshift -l 26.44:92.03 &
 
 # scripts
-bash ~/.config/bspwm/cleanfullscreen &
-bash ~/.config/bspwm/setkb.sh &
-python3 ~/.dotfiles/scripts/remindme.py &
+#bash ~/.config/bspwm/cleanfullscreen &
+#python3 ~/.dotfiles/scripts/remindme.py &
 
 #
 # bspwm specific configs
 #
 
-bspc monitor HDMI-0 -d 1 2 3 4 5
-bspc monitor eDP-1-1 -d 6 7 8 9 0
+bspc monitor -d 1 2 3 4 5 6
 
+#bspc monitor DisplayPort-1 -d 1 2 3 4 5
+#bspc monitor eDP -d 6 7 8 9 0
+
+bspc config top_padding 32
 bspc config border_width         2
 bspc config window_gap          12
 bspc config split_ratio          0.52
@@ -47,6 +50,7 @@ bspc config gapless_monocle      true
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a TelegramDesktop state=floating
+bspc rule -a vesktop state=floating
 # bspc rule -a Chromium desktop='^2'
 bspc rule -a mpv state=floating
 bspc rule -a Kupfer.py focus=on
@@ -62,23 +66,23 @@ obsidian &
 
 ## firefox
 bspc rule -a firefox desktop=^2 focus=off -o
-firefox &
+#firefox &
 
 ## qbittorrent
-qbittorrent &
+#qbittorrent &
 
 ## telegram-desktop
 bspc rule -a telegram-desktop desktop=^10 focus=off -o
-telegram-desktop &
+#telegram-desktop &
 
 ## easy effects
 easyeffects --gapplication-service &
 
 ## blueman (for bluetooth)
-blueman-applet &
+#blueman-applet &
 
 ## nicotine
-nicotine -n &
+#nicotine -n &
 
 
 # end of story (for now)
