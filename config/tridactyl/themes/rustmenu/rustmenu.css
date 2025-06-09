@@ -120,11 +120,13 @@
 }
 
 :root #cmdline_iframe {
-	position: fixed !important;
+	position: absolute !important;
 	bottom: unset;
 	/* opacity: 1; */
-	top: 20% !important;
-	left: 23% !important;
+	top: 50% !important;
+	margin-top: -250px !important;
+	margin: 0 auto !important;
+	/* left: 23% !important; */
 	width: 60% !important;
 	z-index: 2147483647 !important;
 	border: 1px solid black !important; /* around window */
