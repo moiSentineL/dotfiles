@@ -124,8 +124,8 @@
 	bottom: unset;
 	/* opacity: 1; */
 	top: 50% !important;
-	/* margin-top: -250px !important; */
-	margin: -250px 0 -300px !important;
+	margin-top: -250px !important;
+	/* margin: -250px 0 -300px !important; */
 	left: 50% !important;
 	width: 60% !important;
 	z-index: 2147483647 !important;
