@@ -124,9 +124,9 @@
 	bottom: unset;
 	/* opacity: 1; */
 	top: 50% !important;
-	margin-top: -250px !important;
-	margin: 0 auto !important;
-	/* left: 23% !important; */
+	/* margin-top: -250px !important; */
+	margin: -250px 0 -300px !important;
+	left: 50% !important;
 	width: 60% !important;
 	z-index: 2147483647 !important;
 	border: 1px solid black !important; /* around window */
