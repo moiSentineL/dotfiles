@@ -36,23 +36,24 @@ redshift -l 26.44:92.03 &
 # bspwm specific configs
 #
 
-bspc monitor -d 1 2 3 4 5 6
+bspc monitor -d 1 2 3 4 5 6 7 8
+
 
 #bspc monitor DisplayPort-1 -d 1 2 3 4 5
 #bspc monitor eDP -d 6 7 8 9 0
 
-bspc config top_padding 32
+bspc config top_padding 27
 bspc config border_width         2
 bspc config window_gap          12
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc rule -a Gimp desktop='^8' state=floating follow=on
+# bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a TelegramDesktop state=floating
 bspc rule -a vesktop state=floating
 # bspc rule -a Chromium desktop='^2'
-bspc rule -a mpv state=floating
+bspc rule -a mpv desktop='^6' state=floating follow=on
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
@@ -67,6 +68,8 @@ obsidian &
 ## firefox
 bspc rule -a firefox desktop=^2 focus=off -o
 #firefox &
+
+bspc rule -a firefox desktop=^2 focus=off -o
 
 ## qbittorrent
 #qbittorrent &
