@@ -1,3 +1,3 @@
 function repos
-	cd ~/.local/stuff/
+	cd ~/.local/repos/
 end

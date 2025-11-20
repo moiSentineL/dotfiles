@@ -2,7 +2,10 @@
 # VERSION: 3.0
 SETUVAR AUTOSWITCH_FILE:\x2evenv
 SETUVAR AUTOSWITCH_VERSION:3\x2e6\x2e0
+SETUVAR MOZ_X11_EGL:1
 SETUVAR --export OBS_HOST:192\x2e168\x2e10\x2e5
+SETUVAR --export SWALLOW_APPLICATIONS:gthumb\x7ceog\x7czathura\x7cmpv
+SETUVAR --export SWALLOW_TERMINALS:xterm\x7ckitty
 SETUVAR ZO_CMD:zo
 SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/home/nibir/\x2elocal/share/z/data
@@ -40,12 +43,12 @@ SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrbl
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
-SETUVAR fish_greeting:\x0a\x20\x20\x1b\x5b36mos\x1b\x5b37m\x20\x7e\x20Arch\x20Linux\x0a\x20\x20\x1b\x5b36msh\x1b\x5b37m\x20\x7e\x20fish\x0a\x20\x20\x1b\x5b36mwm\x1b\x5b37m\x20\x7e\x20bspwm\x0a\x20\x20\x1b\x5b36mkr\x1b\x5b37m\x20\x7e\x206\x2e14\x2e6\x0a\x0a\x20\x20\u0295\u2022\u1d25\u2022\u0294\x20welcome\x20to\x20\x1b\x5b35mchaos\x1b\x5b0m\x2c\x20\x1b\x5b35mnibir\x1b\x5b0m
+SETUVAR fish_greeting:\x0a\x20\x20\x1b\x5b36mos\x1b\x5b37m\x20\x7e\x20Arch\x20Linux\x0a\x20\x20\x1b\x5b36msh\x1b\x5b37m\x20\x7e\x20fish\x0a\x20\x20\x1b\x5b36mwm\x1b\x5b37m\x20\x7e\x20bspwm\x0a\x20\x20\x1b\x5b36mkr\x1b\x5b37m\x20\x7e\x206\x2e16\x2e5\x0a\x0a\x20\x20\u0295\u2022\u1d25\u2022\u0294\x20welcome\x20to\x20\x1b\x5b35mchaos\x1b\x5b0m\x2c\x20\x1b\x5b35mnibir\x1b\x5b0m\x0a\x0a\x20\x20\x1b\x5b36mI\x27ve\x20got\x20a\x20bad\x20feeling\x20about\x20this\x2e
 SETUVAR fish_key_bindings:fish_default_key_bindings
 SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:yellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/home/nibir/\x2ecargo/bin\x1e/home/nibir/\x2elocal/bin
+SETUVAR fish_user_paths:/home/nibir/\x2econfig/emacs/bin\x1e/home/nibir/\x2elocal/stuff/kattis\x2dcli\x1e/home/nibir/\x2ecargo/bin\x1e/home/nibir/\x2elocal/bin\x1e/home/nibir/\x2edotfiles/scripts\x1e/home/nibir/\x2eemacs\x2ed/bin
 SETUVAR polydir:/home/nibir/\x2econfig/polybar/

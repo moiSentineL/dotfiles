@@ -20,4 +20,3 @@ complete -f -c timew -n "__fish_seen_subcommand_from modify tag untag; and not _
 
 # tags for start/track
 complete -f -c timew -n "__fish_seen_subcommand_from start track" -a "(__get_tags)"
-
