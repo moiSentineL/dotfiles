@@ -1,0 +1,29 @@
+#!/bin/bash
+
+read -p "front? " front
+read -p "back? " back
+read -p "urgency (low medium high) " urgency
+
+curl localhost:8765 -X POST -d '{
+  "action": "addNotes",
+  "version": 6,
+  "params": {
+    "notes": [
+      {
+        "deckName": "Default::Bucket List",
+        "modelName": "Basic",
+        "fields": {
+          "Front": "'"$front"'",
+          "Back": "'"$back"'"
+        },
+        "tags": [
+          "todo::'"$urgency"'"
+        ],
+        "options": {
+          "allowDuplicate": false
+        }
+      }
+    ]
+  }
+}' -H "Content-Type: application/json"
+

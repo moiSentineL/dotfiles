@@ -1,0 +1,90 @@
+#!/bin/bash
+set -euo pipefail
+
+# === CONFIG ===
+DAILY_DIR="/home/nibir/docs/obsidian/002 Journal/Daily/"
+today_filename="$(date +"%Y/%m-%B/%B %-d, %Y").md"
+NOTE_PATH="$DAILY_DIR/$today_filename"
+WEBHOOK_URL="https://discord.com/api/webhooks/1436670195270811709/bWqdzODZXeNeO9Cyg16y7H4mAJ8L8JnGzOL45hzRojN-KOCTbyB59IE8wR0QcRfQqVrI"
+MESSAGE_ID_FILE="$HOME/.todolog_id"
+
+# === FORMAT NOTE ===
+CONTENT=$(awk '
+BEGIN { in_yaml=0 }
+/^---$/ { in_yaml = !in_yaml; next }
+in_yaml == 0 { print }
+' "$NOTE_PATH" | \
+sed -E '
+  s/^- \[x\]/✓/;
+  s/^- \[ \]/☐/;
+  s/^- \[-\] (.*)$/✗ ~~\1~~/;
+  s/^- \[.\]/▨/;
+  /Nibir'\''s To-Do/! s/^##+ (.*)$/**\1**/;
+  s/[[:space:]]+$//;
+  s/$/  /;
+  ')
+
+
+# === BUILD JSON SAFELY ===
+# Use python3 to produce a JSON-escaped string for the content field.
+# This avoids problems with newlines, quotes, backslashes, etc.
+if command -v python3 >/dev/null 2>&1; then
+  JSON_CONTENT=$(printf '%s' "$CONTENT" | python3 -c 'import sys, json; print(json.dumps(sys.stdin.read()))')
+elif command -v jq >/dev/null 2>&1; then
+  # jq -R -s -c @json does the same: read raw, slurp, json-encode
+  JSON_CONTENT=$(printf '%s' "$CONTENT" | jq -R -s -c '@json')
+else
+  echo "❌ Need python3 or jq to JSON-escape the payload."
+  exit 1
+fi
+
+# Full payload: {"content": <json-string>}
+PAYLOAD="{\"content\": $JSON_CONTENT}"
+
+# curl -H "Content-Type: application/json" \
+#      -X POST \
+#      -d "$PAYLOAD" \
+#      "$WEBHOOK_URL" \
+#      -s -o -
+
+# === POST or PATCH ===
+post_new() {
+  RESPONSE=$(curl -s -H "Content-Type: application/json" -X POST -d "$PAYLOAD" "$WEBHOOK_URL?wait=true")
+  # extract id
+  echo "$RESPONSE"
+  MESSAGE_ID=$(printf '%s' "$RESPONSE" | grep -o '"id":[[:space:]]*"[^"]*"' | head -n1 | cut -d'"' -f4 || true)
+  if [ -n "$MESSAGE_ID" ]; then
+    printf '%s' "$MESSAGE_ID" > "$MESSAGE_ID_FILE"
+    echo "✅ Posted new message (ID: $MESSAGE_ID)"
+  else
+    echo "❌ Failed to post message. Response:"
+    printf '%s\n' "$RESPONSE"
+    return 1
+  fi
+}
+
+edit_existing() {
+  local mid="$1"
+  HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
+    -H "Content-Type: application/json" \
+    -X PATCH \
+    -d "$PAYLOAD" \
+    "$WEBHOOK_URL/messages/$mid")
+  echo "$HTTP_CODE"
+}
+
+if [ -f "$MESSAGE_ID_FILE" ]; then
+  MESSAGE_ID=$(cat "$MESSAGE_ID_FILE")
+  echo "🛠 Attempting to edit existing message ($MESSAGE_ID)..."
+  CODE=$(edit_existing "$MESSAGE_ID")
+  if [ "$CODE" = "200" ]; then
+    echo "✅ Successfully updated message."
+    exit 0
+  else
+    echo "⚠️ Edit failed (HTTP $CODE). Will try posting a new message."
+    rm -f "$MESSAGE_ID_FILE"
+    post_new
+  fi
+else
+  post_new
+fi

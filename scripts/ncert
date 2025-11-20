@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd ~/docs/school/Class 12/Textbooks/
+
+kitty @ launch ranger

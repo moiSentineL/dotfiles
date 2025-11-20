@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 if [[ $# -ne 2 ]]; then
     echo "Not quite my tempo"

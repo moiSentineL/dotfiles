@@ -2,15 +2,19 @@
 
 DATE=$(date +"%Y-%m-%d")
 
-read -p "Enter short title for the win: " TITLE
-
-TEMP_FILE="/tmp/win.md"
+TEMP_FILE="/tmp/todo.md"
 
 cat > "$TEMP_FILE" <<EOF
-🏆 **$TITLE** - $DATE
+## Nibir's To-Do's - $DATE
 
-🔥 **Did:**
-🎯 **Why:**
+**Core**
+1. 
+2. 
+
+**Misc**
+1. 
+2. 
+
 EOF
 
 nvim "$TEMP_FILE"
@@ -18,5 +22,5 @@ nvim "$TEMP_FILE"
 xclip -selection clipboard < "$TEMP_FILE"
 rm "$TEMP_FILE"
 
-echo "Win log copied."
+echo "Todos copied."
 

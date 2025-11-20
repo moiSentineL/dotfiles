@@ -1,0 +1,15 @@
+#!/bin/bash
+
+source_dir="$HOME/media/shutdown/"
+
+sleep 4
+# 1. Play a random anthem
+song=$(find $source_dir -type f | shuf -n 1)
+mpv --no-video --really-quiet "$song"
+
+# 2. Suspend the remote PC
+ssh -t nibir@192.168.10.5 'systemctl suspend || systemctl sleep'
+
+# 3. Suspend this (host/local) PC
+systemctl sleep
+

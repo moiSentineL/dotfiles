@@ -1,0 +1,65 @@
+#!/bin/bash
+
+LOG_FILE='log.txt'
+
+view() {
+  # This creates an index like: "2024 AMC 10A #1 | 2"
+  awk -v RS='%%' '
+    {
+      n = split($0, lines, "\n");
+      prob = "";
+      for (i = 1; i <= n; i++) {
+        if (lines[i] ~ /^Problem:/) {
+          prob = lines[i]; gsub(/^Problem: /, "", prob);
+          break;
+        }
+      }
+      if (prob != "") {
+        print prob "|" NR;
+      }
+    }
+  ' "$LOG_FILE" | tee /tmp/debug.txt |\
+  fzf --delimiter='|' --with-nth=1 \
+      --preview="awk -v RS='%%' 'NR=={2}' '$LOG_FILE'" \
+      --preview-window=down:wrap \
+      --bind "enter:execute(awk -v RS='%%' 'NR=={2}' '$LOG_FILE' | less)"
+}
+
+entry () {
+    solved=$(date +"%Y-%m-%d")
+    problem="$1"
+    # read -p "Problem: " problem
+    read -p "Tag (nt, geo, combi, etc): " tag
+    read -p "Time taken: " time
+    read -p "Difficulty (1-5): " diff
+    cat >> "$LOG_FILE" <<EOF
+$solved
+Problem: $problem
+Tag: $tag
+Time: $time
+Diff: $diff
+
+%%
+
+EOF
+    echo "logged"
+}
+
+case "$1" in
+  view)
+    view
+    ;;
+  stats)
+    echo "Not yet implemented. Want tag counts or avg time?"
+    ;;
+  "" )
+    echo "Usage:"
+    echo "  log.sh \"Problem name\"       → Add new log"
+    echo "  log.sh view                  → View/search logs"
+    echo "  log.sh stats                 → (Future) Stats"
+    ;;
+  * )
+    entry "$1"
+    ;;
+esac
+

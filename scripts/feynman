@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# open obs
+bspc rule -a "obs" desktop=^6 focus=on -o; obs &
+
+# open krita
+bspc rule -a "krita" desktop=^3 focus=on -o; krita &
