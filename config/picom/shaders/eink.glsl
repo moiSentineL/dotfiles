@@ -1,36 +1,40 @@
-// eink_dither.glsl - Lightweight e-ink style fragment shader for Picom
-// Author: ChatGPT x Nibir
-// Style: Monochrome + Bayer Dithering (no animation, ghosting, or slow refresh)
-
-#version 330 core
+#version 330
 
 in vec2 texcoord;
-out vec4 fragColor;
-
 uniform sampler2D tex;
+uniform float opacity;
 
-float bayerDither(vec2 uv) {
-    int x = int(mod(uv.x * 4.0, 4.0));
-    int y = int(mod(uv.y * 4.0, 4.0));
-    int index = x + y * 4;
+vec4 default_post_processing(vec4 c);
 
-    float bayer[16] = float[](
-        0.0,  8.0,  2.0, 10.0,
-        12.0, 4.0, 14.0, 6.0,
-        3.0, 11.0, 1.0,  9.0,
-        15.0, 7.0, 13.0, 5.0
-    );
-
-    return bayer[index] / 16.0;
+// Tunable softness and warmth
+float soft_contrast(float v) {
+    return clamp((v - 0.5) * 1.2 + 0.5, 0.1, 0.95);
 }
 
-void main() {
-    vec3 color = texture(tex, texcoord).rgb;
-    float gray = dot(color, vec3(0.299, 0.587, 0.114)); // Perceptual grayscale
-
-    float threshold = bayerDither(texcoord);
-    float bw = gray < threshold ? 0.0 : 1.0;
-
-    fragColor = vec4(vec3(bw), 1.0); // Output final monochrome color
+vec3 apply_warm_tint(float luminance, float warmth_amount) {
+    // Base grayscale
+    vec3 gray = vec3(luminance);
+    // Sepia-ish warm tint
+    vec3 warm = vec3(0.85, 0.78, 0.7);
+    return mix(gray, warm, warmth_amount);
 }
 
+vec4 window_shader() {
+	vec2 texsize = textureSize(tex, 0);
+	vec4 color = texture(tex, texcoord / texsize);
+
+	// Invert for dark mode feel
+	vec3 inv_color = vec3(1.0) - color.rgb;
+
+	// Grayscale conversion on inverted
+	float luminance = 0.2126 * inv_color.r + 0.7152 * inv_color.g + 0.0722 * inv_color.b;
+	luminance = soft_contrast(luminance);
+
+	// Apply warmth (set 0.0 to 0.2 based on taste)
+	vec3 warmed = apply_warm_tint(luminance, 0.08);
+
+	// Invert back to dark mode
+	vec3 final_color = vec3(1.0) - warmed;
+
+	return default_post_processing(vec4(final_color * opacity, color.a * opacity));
+}
