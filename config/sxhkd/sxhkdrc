@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + @space
-	dmenu_run -b -fn "EnvyCodeR Nerd Font Propo-11"
+	dmenu_run -b -fn "Pragmasevka Nerd Font-11"
 
 # make sxhkd reload its configuration files:
 super + Escape
