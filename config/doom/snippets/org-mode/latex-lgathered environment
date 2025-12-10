@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: latex-lgathered environment
+# key: lg
+# --
+\begin{lgathered}
+$0
+\end{lgathered}

@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: logging - physics brawl
+# key: ll
+# --
+
+*** Problem ID:
+    $0
+*** Key Insight:
+    $1
+*** Notes:
+    $2
+*** Final Answer:
