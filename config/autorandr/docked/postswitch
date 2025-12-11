@@ -5,24 +5,26 @@ set -e
 MONITOR='DisplayPort-1'
 
 # Kill any running polybar
-pkill -x polybar || true
-while pgrep -x polybar >/dev/null; do sleep 0.5; done
+pkill -x polybar
+pkill -x cleanfullscreen
+
+sleep 1
 
 # Launch polybar on the active monitor
 MONITOR=$MONITOR polybar second &
 
-sleep 2
+sleep 1
 
 # Clean up ghost monitors and workspaces
 bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
 bspc config merge_overlapping_monitors true
 
-bspc monitor --reset-desktops 1 2 3 4 5 6
+bspc monitor --reset-desktops 1 2 3 4 5 6 7 8
 
 # Set the wallpaper
 feh --bg-scale ~/.dotfiles/assets/mono.jpg &
 
+sleep 1
 
-~/.config/bspwm/setkb.sh && sleep 2
 ~/.config/bspwm/cleanfullscreen_second &
