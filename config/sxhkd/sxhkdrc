@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + @space
-	dmenu_run -b -fn "Pragmasevka Nerd Font-11"
+	dmenu_run -b -fn "Pragmasevka Nerd Font-11" -sb "#91171f"
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -17,9 +17,11 @@ super + Escape
 #super + grave 
 #	bash /home/nibir/.dotfiles/scripts/xscreenshot.sh
 
+# execute screenshot utility
 Print
 	flameshot gui
 
+# autorandr
 super + alt + a
 	autorandr -c
 
@@ -27,9 +29,9 @@ super + alt + a
 alt + @n
 	~/.dotfiles/scripts/zen_hotkey.sh
 
-# launch dolphin
-super + d
-        dolphin
+# sleep
+super + alt + end
+      systemctl sleep
 
 #suspend
 #super + shift + n

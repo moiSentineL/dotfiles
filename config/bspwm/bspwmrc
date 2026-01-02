@@ -14,7 +14,7 @@ bash ~/.config/bspwm/setkb.sh &
 pgrep -x sxhkd > /dev/null || sxhkd -m -1 &
 
 ## feh (wall)
-feh --bg-scale ~/.dotfiles/assets/mono.jpg &
+feh --bg-scale ~/.dotfiles/assets/walls/mono.jpg &
 
 ## dunst (notif)
 dunst &
@@ -26,7 +26,10 @@ picom &
 #xrandr --output HDMI-0 --primary --mode 1920x1080 --refresh 74.97 --pos 0x0 --output eDP-1-1 --mode 1920x1080 --pos 1920x0
 
 ## redshift (for bluelight filter)
-redshift -l 26.44:92.03 &
+redshift &
+
+## polkit
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # scripts
 #bash ~/.config/bspwm/cleanfullscreen &
@@ -63,7 +66,7 @@ bspc rule -a Screenkey manage=off
 
 ## obsidian
 bspc rule -a obsidian desktop=^1 focus=off -o
-obsidian &
+#obsidian &
 
 ## firefox
 bspc rule -a firefox desktop=^2 focus=off -o
