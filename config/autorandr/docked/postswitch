@@ -4,27 +4,31 @@ set -e
 # Get the currently active/primary monitor (as set by autorandr)
 MONITOR='DisplayPort-1'
 
-# Kill any running polybar
+# kill any running polybar
 pkill -x polybar
 pkill -x cleanfullscreen
 
 sleep 1
 
-# Launch polybar on the active monitor
-MONITOR=$MONITOR polybar second &
-
-sleep 1
-
-# Clean up ghost monitors and workspaces
+# clean up ghost monitors and workspaces
 bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
 bspc config merge_overlapping_monitors true
 
 bspc monitor --reset-desktops 1 2 3 4 5 6 7 8
 
-# Set the wallpaper
+# wall
 feh --bg-scale ~/.dotfiles/assets/mono.jpg &
+
+sleep 2
+
+# status bas
+~/.dotfiles/config/bspwm/polybar.sh
 
 sleep 1
 
-~/.config/bspwm/cleanfullscreen_second &
+# inputs
+setxkbmap -model pc105 -layout us -variant cmk_ed_us -option grp:alt_shift_toggle,misc:extend,lv5:caps_switch_lock,grp:shifts_toggle,compose:menu -v 9
+
+xinput set-button-map "HID 1bcf:08a0 Mouse" 3 2 1 4 5 6 7 8 9
+xinput set-prop "HID 1bcf:08a0 Mouse" "libinput Accel Speed" 0.4
