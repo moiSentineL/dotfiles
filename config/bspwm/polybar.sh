@@ -2,10 +2,9 @@
 
 # Kill any existing Polybar instances
 pkill -x polybar
+pkill -x cleanfullscreen
 
 # Wait for them to close
-while pgrep -x polybar >/dev/null; do sleep 0.5; done
-
 sleep 1
 
 polybar second &
