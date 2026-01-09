@@ -55,5 +55,9 @@
 
 (package! org-modern)
 
-(unpin! org-roam)
-(package! org-roam-ui)
+;; (unpin! org-roam)
+;; (package! org-roam-ui)
+
+(package! elpher)
+(package! anki-editor)
+(package! gemtext-mode)

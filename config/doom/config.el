@@ -22,9 +22,10 @@
 ;; accept. For example:
 ;;
 (setq doom-font (font-spec :family "Pragmasevka Nerd Font" :size 18)
-      doom-variable-pitch-font (font-spec :family "Manrope" :size 13))
+      doom-variable-pitch-font (font-spec :family "Atkinson Hyperlegible Next" :size 22)
+      doom-big-font-increment 10)
 ;;
-;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
+;; If You or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
@@ -83,8 +84,15 @@
 
 ;; -- org + org-roam
 
-(setq org-directory "~/docs/org/")
-(setq org-agenda-files '("~/docs/org/agenda.org" "~/docs/org/inbox.org" "~/docs/org/notes.org"))
+(after! org
+  (setq org-directory "~/docs/org/"
+        org-agenda-files '("~/docs/org/agenda.org" "~/docs/org/inbox.org" "~/docs/org/notes.org")
+        org-capture-templates '(
+          ("t" "Daily Capture" entry
+           (file+headline "~/docs/org/inbox.org" "Inbox") ; Target the Inbox file
+         "* TODO %?\n  %i\n  %a"))
+        ))
+
 
 (use-package! org-modern
   :after org
@@ -108,81 +116,77 @@
     org-agenda-tags-column 0
     org-ellipsis "…")
 
-(use-package org-roam
-  :after org
-  :ensure t
-  :custom
-  (org-roam-directory (file-truename "~/docs/org/notes/"))
-  (org-roam-dailies-directory "../journal/")
-  :bind (("C-c n l" . org-roam-buffer-toggle)
-         ("C-c n f" . org-roam-node-find)
-         ("C-c n g" . org-roam-graph)
-         ("C-c n i" . org-roam-node-insert)
-         ("C-c n c" . org-roam-capture)
-         ;; Dailies
-         ("C-c n j" . org-roam-dailies-capture-today))
-  :config
-  ;; If you're using a vertical completion framework, you might want a more informative completion interface
-  (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
-  (org-roam-db-autosync-mode)
-  ;; If using org-roam-protocol
-  (require 'org-roam-protocol))
+;; (use-package org-roam
+;;   :after org
+;;   :ensure t
+;;   :custom
+;;   (org-roam-directory (file-truename "~/docs/org/notes/"))
+;;   (org-roam-dailies-directory "../journal/")
+;;   :bind (("C-c n l" . org-roam-buffer-toggle)
+;;          ("C-c n f" . org-roam-node-find)
+;;          ("C-c n g" . org-roam-graph)
+;;          ("C-c n i" . org-roam-node-insert)
+;;          ("C-c n c" . org-roam-capture)
+;;          ;; Dailies
+;;          ("C-c n j" . org-roam-dailies-capture-today))
+;;   :config
+;;   ;; If you're using a vertical completion framework, you might want a more informative completion interface
+;;   (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+;;   (org-roam-db-autosync-mode)
+;;   ;; If using org-roam-protocol
+;;   (require 'org-roam-protocol))
 
 
-(use-package! org-roam-ui
-    :after org-roam ;; or :after org
-;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
-;;         a hookable mode anymore, you're advised to pick something yourself
-;;         if you don't care about startup time, use
-;;  :hook (after-init . org-roam-ui-mode)
-    :config
-    (setq org-roam-ui-sync-theme t
-          org-roam-ui-follow t
-          org-roam-ui-update-on-save t
-          org-roam-ui-open-on-start t))
+;; (use-package! org-roam-ui
+;;     :after org-roam ;; or :after org
+;; ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+;; ;;         a hookable mode anymore, you're advised to pick something yourself
+;; ;;         if you don't care about startup time, use
+;; ;;  :hook (after-init . org-roam-ui-mode)
+;;     :config
+;;     (setq org-roam-ui-sync-theme t
+;;           org-roam-ui-follow t
+;;           org-roam-ui-update-on-save t
+;;           org-roam-ui-open-on-start t))
 
-(setq org-roam-capture-templates
-	'(("n" "notes" plain
-	    "\n* About\n %?"
-	    :target (file+head "${slug}.org"
-				"#+title: ${title}\n")
-	    :immediate-finish t
-	    :unnarrowed t)
-	    )
-	)
+;; (setq org-roam-capture-templates
+;; 	'(("n" "notes" plain
+;; 	    "\n* About\n %?"
+;; 	    :target (file+head "${slug}.org"
+;; 				"#+title: ${title}\n")
+;; 	    :immediate-finish t
+;; 	    :unnarrowed t)
+;; 	    )
+;; 	)
 
-(setq org-roam-dailies-capture-templates
-      '(("d" "daily scratchpad & tasks" plain
-         ,(concat
-           "* Todo's for %<%Y-%m-%d>\n"
-           "** Core [ / ]\n"
-           "- [ ] day XX\n"
-           "- [ ] %?\n"
-           "- [ ] Workout - P/P/L\n"
-           "\n"
-           "** Any >= 3\n"
-           "\n"
-           "*** Menial Slave Labour\n"
-           "- [ ] \n"
-           "\n"
-           "*** Maintenance / Debugging\n"
-           "- [ ] \n"
-           "\n"
-           "* Scratchpad\n"
-           "** Ideas\n"
-           "\n"
-           "** Any weird stuff\n"
-           "\n")
-         :target (file+head
-                  "%<%Y-%m-%d>.org"
-                  "#+title: %<%Y-%m-%d>\n")
-         :immediate-finish t
-         :unnarrowed t)))
+;; (setq org-roam-dailies-capture-templates
+;;       '(("d" "daily scratchpad & tasks" plain
+;;          ,(concat
+;;            "* Todo's for %<%Y-%m-%d>\n"
+;;            "** Core [ / ]\n"
+;;            "- [ ] day XX\n"
+;;            "- [ ] %?\n"
+;;            "- [ ] Workout - P/P/L\n"
+;;            "\n"
+;;            "** Any >= 3\n"
+;;            "\n"
+;;            "*** Menial Slave Labour\n"
+;;            "- [ ] \n"
+;;            "\n"
+;;            "*** Maintenance / Debugging\n"
+;;            "- [ ] \n"
+;;            "\n"
+;;            "* Scratchpad\n"
+;;            "** Ideas\n"
+;;            "\n"
+;;            "** Any weird stuff\n"
+;;            "\n")
+;;          :target (file+head
+;;                   "%<%Y-%m-%d>.org"
+;;                   "#+title: %<%Y-%m-%d>\n")
+;;          :immediate-finish t
+;;          :unnarrowed t)))
  
-(setq org-capture-templates
-      '(("t" "Daily Capture" entry
-         (file+headline "~/docs/org/inbox.org" "Inbox") ; Target the Inbox file
-         "* TODO %?\n  %i\n  %a")))
 
 (after! org-download
       (setq org-download-method 'directory)
@@ -200,38 +204,20 @@
 ;;(setq org-format-latex-options (plist-put org-format-latex-options :scale 2))
 (setq org-latex-preview-threshold 1.0)
 
+;; -- projects
+
+(setq projectile-project-search-path '("~/.local/repos/"))
+
 ;; -- keybinds
 
-(map! "C-M-n" #'evil-window-left
-      "C-M-i" #'evil-window-right
-      "C-M-u" #'evil-window-up
-      "C-M-e" #'evil-window-down)
+(map! :map org-mode-map
+      :n "SPC TAB" #'org-toggle-narrow-to-subtree)
 
-;; -- custom functions
+(map! :g "C-M-n" #'evil-window-left
+      :g "C-M-i" #'evil-window-right
+      :g "C-M-u" #'evil-window-up
+      :g "C-M-e" #'evil-window-down)
 
-(defun nb/copy-leak-tracker-to-clipboard ()
-  "Open today's journal, find 'Leak Tracker', export subtree as text, copy to clipboard."
-  (interactive)
-  (require 'org)
-  (require 'org-journal)
-
-  ;; open and switch to today's journal
-  (org-journal-open-current-journal-file)
-
-  (goto-char (point-min))
-
-  ;; manually use isearch to find the heading
-  (isearch-forward "Leak Tracker")
-  (isearch-exit)
-
-  (unless (org-at-heading-p)
-    (org-back-to-heading))
-
-  (let* ((subtree (org-element-at-point))
-         (raw (buffer-substring-no-properties
-               (org-element-property :begin subtree)
-               (org-element-property :end subtree)))
-         ;; ascii backend = plain UTF-8 text
-         (exported (org-export-string-as raw 'ascii t)))
-    (kill-new exported)
-    (message "Leak Tracker copied. Go fix your leaks, champ.")))
+(map! :map elpher-mode-map
+      :g "C-=" #'text-scale-increase
+      :g "C--" #'text-scale-decrease)
