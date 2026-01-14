@@ -2,18 +2,29 @@
 
 DATE=$(date +"%Y-%m-%d")
 
-read -p "Enter short title for the win: " TITLE
+# read -p "Enter short title for the win: " TITLE
 
 TEMP_FILE="/tmp/win.md"
 
 cat > "$TEMP_FILE" <<EOF
-🏆 **$TITLE** - $DATE
+🏆 **TITLE** - $DATE
 
-🔥 **Did:**
-🎯 **Why:**
+🔥 **Positives:**
+
++
+
+👎 **Negatives:**
+
+-
+
+
+❔ **Uncategorised:**
+
+?
+
 EOF
 
-nvim "$TEMP_FILE"
+emacsclient "$TEMP_FILE"
 
 xclip -selection clipboard < "$TEMP_FILE"
 rm "$TEMP_FILE"

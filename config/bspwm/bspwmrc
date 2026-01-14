@@ -1,8 +1,8 @@
 #! /bin/sh
 
-#
-# Nibir's bspwmrc (2025)
-#
+# -------
+# nibir's bspwmrc
+# -------
 
 # stuff to run the system
 ## polybar

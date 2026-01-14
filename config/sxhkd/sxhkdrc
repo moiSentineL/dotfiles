@@ -1,3 +1,7 @@
+# --------
+# nibir's sxhkdrc
+# --------
+
 #
 # wm independent hotkeys
 #
@@ -17,6 +21,10 @@ super + Escape
 #super + grave 
 #	bash /home/nibir/.dotfiles/scripts/xscreenshot.sh
 
+# wallpaper
+super + alt + w
+    ~/.dotfiles/scripts/wallsetter.sh
+
 # execute screenshot utility
 Print
 	flameshot gui
@@ -30,12 +38,20 @@ alt + @n
 	~/.dotfiles/scripts/zen_hotkey.sh
 
 # sleep
-super + alt + end
+super + alt + End
       systemctl sleep
 
-#suspend
-#super + shift + n
-#	systemctl suspend -i
+# color picker
+shift + Print
+      xcolor -s clipboard
+
+# handy transcription
+super + equal
+      pkill -USR2 -f handy
+
+# timew start script
+super + @0
+      ~/.dotfiles/scripts/timew-dmenu.sh
 
 #
 # bspwm hotkeys

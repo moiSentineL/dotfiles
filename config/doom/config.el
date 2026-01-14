@@ -208,6 +208,26 @@
 
 (setq projectile-project-search-path '("~/.local/repos/"))
 
+;; -- functions
+
+(defun my/unicode-sans-italic-region (start end)
+  "Convert region to Unicode sans-serif italics."
+  (interactive "r")
+  (let ((map
+         (lambda (c)
+           (cond
+            ((and (>= c ?a) (<= c ?z)) (+ #x1D622 (- c ?a)))
+            ((and (>= c ?A) (<= c ?Z)) (+ #x1D608 (- c ?A)))
+            (t c)))))
+    (save-excursion
+      (goto-char start)
+      (while (< (point) end)
+        (let* ((c (char-after))
+               (nc (funcall map c)))
+          (delete-char 1)
+          (insert-char nc))))))
+
+
 ;; -- keybinds
 
 (map! :map org-mode-map
@@ -221,3 +241,6 @@
 (map! :map elpher-mode-map
       :g "C-=" #'text-scale-increase
       :g "C--" #'text-scale-decrease)
+
+
+(map! :n "C-c I" #'my/unicode-sans-italic-region)
