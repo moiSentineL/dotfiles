@@ -16,8 +16,9 @@ fi
 odd=false
 even=false
 crop=false
+del=false
 
-while getopts "hoec" opt; do
+while getopts "hoecd" opt; do
 	case $opt in
 		o)
 			odd=true ;;
@@ -25,6 +26,8 @@ while getopts "hoec" opt; do
 			even=true ;;
 		c)
 			crop=true ;;
+        d)
+            del=true ;;
 		h)
 			echo "a pdf tool to extract even/odd pages with optional whitepadding crop"
                         echo ""
@@ -35,6 +38,7 @@ while getopts "hoec" opt; do
                         echo "   -e     to extract even pages"
                         echo "   -o     to extract odd pages"
                         echo "   -c     to apply optional cropping"
+                        echo "   -d     delete original file"
                         echo "   -h     help (this output)"
                         exit 0
                         ;;
@@ -83,6 +87,12 @@ if $odd; then
 elif $even; then
 	echo "extracting even pages..."
 	qpdf --empty --pages "$input" 1-z:even -- tmp.pdf
+fi
+
+# opt deleting
+
+if $del; then
+    rm "$input"
 fi
 
 # opt cropping

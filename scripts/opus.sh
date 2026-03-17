@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Configuration: Update these paths!
-SOURCE_DIR="/mnt/Files/Media/Music/FLACs/Sorted"
-MIRROR_DIR="/mnt/Files/Media/Music/opus"
+SOURCE_DIR="/run/media/nibir/elita/Music/FLACs"
+MIRROR_DIR="/home/nibir/media/music/opus"
 
 # Ensure the source exists so we don't do something stupid
 if [ ! -d "$SOURCE_DIR" ]; then
@@ -28,7 +28,7 @@ find "$SOURCE_DIR" -type f -name "*.flac" -print0 | while IFS= read -r -d '' fil
     if [ ! -f "$target_path" ]; then
         echo "Converting: $rel_path"
         # -n tells ffmpeg not to overwrite; -v warning keeps the logs clean
-        ffmpeg -v warning -n -i "$file" -c:a libopus -b:a 128k "$target_path"
+        ffmpeg -v warning -n -i "$file" -c:a libopus -b:a 128k "$target_path" < /dev/null
     else
         echo "Skipping: $rel_path (Already exists)"
     fi

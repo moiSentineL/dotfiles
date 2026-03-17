@@ -123,6 +123,10 @@ super + {;,y}
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
+# hide window (custom script)
+super + shift + h
+      ~/.dotfiles/scripts/winhide
+
 #
 # preselect
 #

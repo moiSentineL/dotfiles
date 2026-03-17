@@ -23,3 +23,6 @@ feh --bg-scale ~/.dotfiles/assets/mono.jpg &
 sleep 2
 
 ~/.dotfiles/config/bspwm/polybar.sh
+
+# turn on screensaver
+xset s on -dpms

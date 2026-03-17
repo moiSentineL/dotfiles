@@ -7,6 +7,11 @@ sinklist=("bluez.dopes" "bluez.pebble" "internal" "interface")
 
 # echo the list
 
-for f in ${sinklist}; do
-    echo ${f} | dmenu # | xargs pactl set-default-sink
-done
+choice=$(printf "%s\n" "${sinklist[@]}" | dmenu -i -b -fn "Pragmasevka Nerd Font-11" -sb "#91171f")
+
+# If user pressed Esc or empty input
+[ -z "$choice" ] && exit 0
+
+echo $choice
+
+# Conditional check

@@ -68,12 +68,6 @@ bspc rule -a Screenkey manage=off
 bspc rule -a obsidian desktop=^1 focus=off -o
 #obsidian &
 
-## firefox
-bspc rule -a firefox desktop=^2 focus=off -o
-#firefox &
-
-bspc rule -a firefox desktop=^2 focus=off -o
-
 ## qbittorrent
 #qbittorrent &
 
