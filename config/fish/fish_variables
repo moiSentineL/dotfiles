@@ -2,6 +2,7 @@
 # VERSION: 3.0
 SETUVAR AUTOSWITCH_FILE:\x2evenv
 SETUVAR AUTOSWITCH_VERSION:3\x2e6\x2e0
+SETUVAR --export GTK_THEME:catppuccin\x2dmocha\x2dteal\x2dstandard\x2bdefault
 SETUVAR MOZ_X11_EGL:1
 SETUVAR --export OBS_HOST:192\x2e168\x2e10\x2e5
 SETUVAR --export SWALLOW_APPLICATIONS:gthumb\x7ceog\x7czathura\x7cmpv

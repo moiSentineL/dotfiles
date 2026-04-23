@@ -1,0 +1,5 @@
+# quick command to open my track.ods with gnumeric
+
+FILE="/home/nibir/docs/track.ods"
+
+gnumeric $FILE &

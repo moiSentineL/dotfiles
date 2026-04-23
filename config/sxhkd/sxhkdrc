@@ -51,7 +51,14 @@ super + equal
 
 # timew start script
 super + @0
-      ~/.dotfiles/scripts/timew-dmenu.sh
+      ~/.dotfiles/scripts/settoday.sh
+
+# open link (in clipboard) in mpv
+super + alt + m
+      mpv $(xclip -selection clipboard -o)
+
+super + alt + y
+      ~/.dotfiles/scripts/quick_video_download.sh
 
 #
 # bspwm hotkeys

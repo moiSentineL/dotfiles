@@ -61,3 +61,4 @@
 (package! elpher)
 (package! anki-editor)
 (package! gemtext-mode)
+(package! org-mime)

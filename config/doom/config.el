@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
 (setq user-full-name "nibirsan"
-      user-mail-address "nibir@nibirsan.org")
+      user-mail-address "poly@tilde.green")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -86,13 +86,13 @@
 
 (after! org
   (setq org-directory "~/docs/org/"
-        org-agenda-files '("~/docs/org/agenda.org" "~/docs/org/inbox.org" "~/docs/org/notes.org")
+        org-agenda-files '("~/docs/org/weekly.org")
+        ;; org-agenda-files '("~/docs/org/agenda.org" "~/docs/org/inbox.org" "~/docs/org/notes.org" "~/docs/org/creative.org" "~/docs/org/life.org" "~/docs/org/academia.org")
         org-capture-templates '(
           ("t" "Daily Capture" entry
            (file+headline "~/docs/org/inbox.org" "Inbox") ; Target the Inbox file
          "* TODO %?\n  %i\n  %a"))
         ))
-
 
 (use-package! org-modern
   :after org
@@ -188,25 +188,31 @@
 ;;          :unnarrowed t)))
  
 
-(after! org-download
-      (setq org-download-method 'directory)
-      (setq org-download-image-dir "~/docs/org/files/")
-      (setq org-download-image-org-width 600)
-      (setq org-download-link-format "[[file:%s]]\n"
+(use-package! org-download
+  :after org
+  :hook (org-mode . org-download-enable)
+  :config
+        (setq org-download-method 'directory)
+        (setq org-download-image-dir "~/docs/org/files/")
+        (setq org-download-screenshot-method 'xclip)
+        (setq org-download-image-org-width 600)
+        (setq org-download-link-format "[[file:%s]]\n"
         org-download-abbreviate-filename-function #'file-relative-name)
-      (setq org-download-link-format-function #'org-download-link-format-function-default))
+        (setq org-download-link-format-function #'org-download-link-format-function-default)
+
+  )
+
 
 ;; -- latex
 (setq org-startup-with-inline-images t)
 
 (setq org-preview-latex-default-process 'dvisvgm)
-(setq org-latex-create-formula-image-program 'dvisvgm)
-;;(setq org-format-latex-options (plist-put org-format-latex-options :scale 2))
+(setq org-format-latex-options '(:scale 2 :background "Transparent"))
 (setq org-latex-preview-threshold 1.0)
 
 ;; -- projects
 
-(setq projectile-project-search-path '("~/.local/repos/"))
+(setq projectile-project-search-path '("~/.local/repos/" "~/docs/coding/"))
 
 ;; -- functions
 
@@ -231,7 +237,9 @@
 ;; -- keybinds
 
 (map! :map org-mode-map
-      :n "SPC TAB" #'org-toggle-narrow-to-subtree)
+      :n "SPC TAB" #'org-toggle-narrow-to-subtree
+      :n "C-S-u" #'outline-previous-heading
+      :n "C-S-e" #'outline-next-heading)
 
 (map! :g "C-M-n" #'evil-window-left
       :g "C-M-i" #'evil-window-right
@@ -242,5 +250,51 @@
       :g "C-=" #'text-scale-increase
       :g "C--" #'text-scale-decrease)
 
+(map! :leader
+      :desc "Paste link with title"
+      "i l" #'org-cliplink)
 
 (map! :n "C-c I" #'my/unicode-sans-italic-region)
+
+;; -- mail
+
+;; (set-email-account! "tilde"
+;;  '((smtpmail-smtp-user     . "poly@tilde.green"))
+;;  t)
+
+;; Configure the function to use for sending mail
+(setq message-send-mail-function 'smtpmail-send-it)
+
+(setq smtpmail-smtp-server "smtp.tilde.green"
+      smtpmail-smtp-service 465
+      smtpmail-stream-type  'ssl)
+
+(setq mu4e-get-mail-command "mbsync tilde"
+      ;; get emails and index every 5 minutes
+      ;; mu4e-update-interval 300
+      ;; send emails with format=flowed
+      mu4e-compose-format-flowed t
+      ;; no need to run cleanup after indexing for gmail
+      mu4e-index-cleanup nil
+      mu4e-index-lazy-check t
+      ;; more sensible date format
+      mu4e-headers-date-format "%d.%m.%y")
+
+(setq mu4e-compose-signature "nibir")
+
+;; (require 'org-mime)
+
+;; (setq org-mime-prefer-html t)
+;; (setq org-mime-export-options '(:with-latex dvipng))
+
+;; (setq org-mime-export-options
+;;       '(:section-numbers nil
+;;         :with-author nil
+;;         :with-toc nil))
+
+;; (add-hook 'message-send-hook #'org-mime-htmlize)
+;; (setq sendmail-program "/usr/sbin/msmtp"
+;;       send-mail-function 'sendmail-send-it
+;;       message-sendmail-f-is-evil t
+;;       message-sendmail-envelope-from 'header
+;;       message-send-mail-function 'message-send-mail-with-sendmail)

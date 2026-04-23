@@ -10,11 +10,12 @@ pkill polybar
 ~/.config/bspwm/polybar.sh &
 
 ## keymaps & sxhkd
-bash ~/.config/bspwm/setkb.sh &
+setxkbmap -model pc105 -layout us -variant cmk_ed_us -option grp:alt_shift_toggle,misc:extend,lv5:caps_switch_lock,grp:shifts_toggle,compose:menu -v 9
+
 pgrep -x sxhkd > /dev/null || sxhkd -m -1 &
 
 ## feh (wall)
-feh --bg-scale ~/.dotfiles/assets/walls/mono.jpg &
+feh --bg-scale ~/.dotfiles/assets/walls/oil\ painting.png &
 
 ## dunst (notif)
 dunst &
@@ -22,28 +23,18 @@ dunst &
 ## picom (compositor)
 picom &
 
-## command to get the second monitor
-#xrandr --output HDMI-0 --primary --mode 1920x1080 --refresh 74.97 --pos 0x0 --output eDP-1-1 --mode 1920x1080 --pos 1920x0
-
 ## redshift (for bluelight filter)
 redshift &
 
 ## polkit
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-# scripts
-#bash ~/.config/bspwm/cleanfullscreen &
-#python3 ~/.dotfiles/scripts/remindme.py &
 
 #
 # bspwm specific configs
 #
 
 bspc monitor -d 1 2 3 4 5 6 7 8
-
-
-#bspc monitor DisplayPort-1 -d 1 2 3 4 5
-#bspc monitor eDP -d 6 7 8 9 0
 
 bspc config top_padding 25
 bspc config border_width         2
@@ -52,34 +43,20 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-# bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a TelegramDesktop state=floating
 bspc rule -a vesktop state=floating
-# bspc rule -a Chromium desktop='^2'
-bspc rule -a mpv desktop='^6' state=floating follow=on
-bspc rule -a Kupfer.py focus=on
+bspc rule -a mpv state=floating follow=on
 bspc rule -a Screenkey manage=off
 
 #
 # autostart programs
 #
 
-## obsidian
-bspc rule -a obsidian desktop=^1 focus=off -o
-#obsidian &
-
-## qbittorrent
-#qbittorrent &
-
-## telegram-desktop
-bspc rule -a telegram-desktop desktop=^10 focus=off -o
-#telegram-desktop &
-
 ## easy effects
 easyeffects --gapplication-service &
 
-## blueman (for bluetooth)
-#blueman-applet &
+## safeeyes
+safeeyes --gapplication-service &
 
 ## nicotine
 #nicotine -n &
