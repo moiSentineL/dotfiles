@@ -1,0 +1,29 @@
+# anki matches
+matches:
+
+  # inline latex
+  - trigger: ";("
+    replace: "\\($|$\\)"
+
+  # display latex
+  - trigger: ";["
+    replace: "\\[$|$\\]"
+
+  - trigger: ";f"
+    # replace: "\\frac{$1}{$2}"
+    form: "\\frac{[[1]]}{[[2]]}"
+
+  - trigger: ";sq"
+    replace: "\\sqrt{$|$}"
+
+  - trigger: ";ce"
+    replace: "\\(\\ce{$|$}\\)"
+
+  - trigger: ";text"
+    replace: "\\text{$|$}"
+
+  - trigger: ";sum"
+    replace: "\\sum_{n=1}^{\\infty}"
+
+  - trigger: ";int"
+    replace: "\\int $|$ \\, dx"
