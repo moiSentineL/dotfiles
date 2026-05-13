@@ -7,6 +7,7 @@ SETUVAR MOZ_X11_EGL:1
 SETUVAR --export OBS_HOST:192\x2e168\x2e10\x2e5
 SETUVAR --export SWALLOW_APPLICATIONS:gthumb\x7ceog\x7czathura\x7cmpv
 SETUVAR --export SWALLOW_TERMINALS:xterm\x7ckitty
+SETUVAR --export XCURSOR_SIZE:26
 SETUVAR ZO_CMD:zo
 SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/home/nibir/\x2elocal/share/z/data
