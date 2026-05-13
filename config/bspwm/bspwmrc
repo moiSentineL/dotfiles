@@ -16,6 +16,7 @@ pgrep -x sxhkd > /dev/null || sxhkd -m -1 &
 
 ## feh (wall)
 feh --bg-scale ~/.dotfiles/assets/walls/oil\ painting.png &
+xsetroot -cursor_name left_ptr
 
 ## dunst (notif)
 dunst &
@@ -57,6 +58,13 @@ easyeffects --gapplication-service &
 
 ## safeeyes
 safeeyes --gapplication-service &
+
+## espanso
+espanso &
+
+## udiskie
+udiskie &
+
 
 ## nicotine
 #nicotine -n &

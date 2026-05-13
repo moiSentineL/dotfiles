@@ -8,34 +8,54 @@
 
 # terminal emulator
 super + Return
-	kitty
+	alacritty
 
 # program launcher
 super + @space
-	dmenu_run -b -fn "Pragmasevka Nerd Font-11" -sb "#91171f"
+#	dmenu_run -l 10
+    ~/.dotfiles/scripts/mindful_run
+# node selector
+super + grave
+      ~/.dotfiles/scripts/shortcuts/node_selector
+
+# input script
+super + shift + i
+      ~/.dotfiles/scripts/inputs.sh & notify-send "Applied Input Configurations"
+
+super + k
+      ~/.dotfiles/scripts/shortcuts/sys
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
+# start pomodoro
+super + p
+      ~/.dotfiles/scripts/shortcuts/dmenu_pomo
+
 #super + grave 
 #	bash /home/nibir/.dotfiles/scripts/xscreenshot.sh
 
+
+# open temp video folder
+super + v
+      ~/.dotfiles/scripts/shortcuts/mpv
+
+# switch audio outputs
+super + a
+      ~/.dotfiles/scripts/shortcuts/audioswitch
+
 # wallpaper
 super + alt + w
-    ~/.dotfiles/scripts/wallsetter.sh
+      ~/.dotfiles/scripts/wallsetter.sh
 
 # execute screenshot utility
 Print
-	flameshot gui
+    flameshot gui
 
 # autorandr
 super + alt + a
-	autorandr -c
-
-# tab switcher inside zen-browser
-alt + @n
-	~/.dotfiles/scripts/zen_hotkey.sh
+      autorandr -c
 
 # sleep
 super + alt + End
@@ -117,8 +137,11 @@ super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
-super + {grave,Tab}
-	bspc {node,desktop} -f last
+# super + {grave,Tab}
+# 	bspc {node,desktop} -f last
+
+super + Tab
+      bspc desktop -f last
 
 # focus the older or newer node in the focus history
 super + {;,y}
@@ -194,6 +217,10 @@ XF86AudioMute
 
 # --- Media Playback ---
 XF86AudioPlay
+    playerctl play-pause
+
+## for thinkpad T14
+XF86Favorites
     playerctl play-pause
 
 XF86AudioNext
