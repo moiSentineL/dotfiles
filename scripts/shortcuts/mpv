@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# from https://raw.githubusercontent.com/BreadOnPenguins/scripts/refs/heads/master/shortcuts-menus/mpv
+
+FOLDER=$HOME/tmp/vids/
+
+openvid () { \
+  NAME="$(echo "$(command ls -t $FOLDER)" | dmenu -i -l 10)" || exit 0
+  mpv "$FOLDER$NAME" >/dev/null 2>&1
+}
+
+openvid

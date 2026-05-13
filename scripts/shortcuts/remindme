@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-FILE="$HOME/today.txt"
-
-input=$(dmenu -p "now: " <&-) || exit 0
+input=$(dmenu -p "s " <&-) || exit 0
 
 # if user cancels, do nothing
 echo "$input" > "$FILE"

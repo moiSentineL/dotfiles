@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# ── Display & DBus session (required for cron → desktop) ──────────────────────
+export DISPLAY=:0
+DBUS_FILE="/run/user/$(id -u)/bus"
+if [ -S "$DBUS_FILE" ]; then
+    export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_FILE"
+fi
+
+# ── Messages (picked at random for variety) ───────────────────────────────────
+MESSAGES=(
+    "Time to check in. How are you feeling right now?"
+    "Pause for a moment. Review your planner."
+    "Check in with yourself. What's your energy like?"
+    "Planner check! Are you on track for today?"
+    "A moment for you. Breathe, then check your plan."
+    "How's it going? Take a look at your next task."
+)
+MSG="${MESSAGES[$RANDOM % ${#MESSAGES[@]}]}"
+
+# ── Notification ──────────────────────────────────────────────────────────────
+notify-send "Check-in Time" "$MSG" \
+    --icon=appointment-soon \
+    --urgency=normal \
+    --expire-time=10000
+
+# ── Sound ─────────────────────────────────────────────────────────────────────
+# Uses a system sound if available; swap the path for any .wav/.ogg you prefer
+SOUND="/home/nibir/media/music/approval.wav"
+if [ -f "$SOUND" ]; then
+    paplay "$SOUND"
+fi

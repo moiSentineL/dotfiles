@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# just take time and title with dmenu and start
+
+time=$(printf "50m 10m\n25m 5m\n75m 15m\n15m" | dmenu -l 10) || exit 0
+name=$(dmenu -p "title: " <&-) || exit 0
+
+alacritty --hold -e "pomo" ${time} ${name:+-t "$name"}

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Ensure we are using a version of bash that supports associative arrays
+declare -A windows
+
+# Populate the array: [Title]=ID
+while read -r id; do
+    title=$(xprop -id "$id" _NET_WM_NAME | awk -F '"' '{print $2}')
+    if [ -z "$title" ]; then
+        title=$(xprop -id "$id" WM_CLASS | awk -F '"' '{print $4}')
+    fi
+
+    # Store ID in the array using title as key
+    windows["$title"]=$id
+done < <(bspc query -N -n .window)
+
+# Present only the titles (keys) to dmenu
+choice=$(printf "%s\n" "${!windows[@]}" | dmenu -i -l 10)
+
+# If a choice was made, get the ID from the array and focus
+if [ -n "$choice" ]; then
+    target_id=${windows[$choice]}
+    bspc node -f "$target_id"
+fi

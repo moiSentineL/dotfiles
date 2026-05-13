@@ -1,0 +1,26 @@
+#!/bin/bash
+
+STATE_FILE="$HOME/.exam_mode"
+
+if [ -f "$STATE_FILE" ]; then
+    rm "$STATE_FILE"
+
+    # stuff
+    bspc monitor --reset-desktops 1 2 3 4 5 6 7 8
+    echo "please update task" > $HOME/today.txt
+    polybar-msg action "#today.hook.0"
+    # stuff end
+
+    notify-send "Exam Mode toggled OFF"
+else
+    touch "$STATE_FILE"
+
+    # stuff
+    bspc monitor --reset-desktops 1 2 3
+    echo "EXAM MODE" > $HOME/today.txt
+    polybar-msg action "#today.hook.0"
+    firefox moz-extension://b9b1a3f4-4eb7-43d4-8642-0fd03e94497e/lockdown.html
+    # stuff end
+
+    notify-send "Exam Mode toggled ON"
+fi

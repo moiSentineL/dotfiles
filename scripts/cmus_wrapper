@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# 1. Pass all arguments to cmusfm for scrobbling
+cmusfm "$@" &
+
+# 2. Extract metadata for the notification
+while [ $# -ge 2 ]; do
+    case "$1" in
+        title)  title="$2" ;;
+        artist) artist="$2" ;;
+        status) status="$2" ;;
+    esac
+    shift 2
+done
+
+# 3. Trigger notification only when a new song starts
+if [ "$status" = "playing" ]; then
+    notify-send -i music-node "Now Playing" "$title\nby $artist"
+    echo "$title - $artist" > "$HOME/song"
+fi

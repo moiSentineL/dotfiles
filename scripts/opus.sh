@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuration: Update these paths!
-SOURCE_DIR="/run/media/nibir/elita/Music/FLACs"
+SOURCE_DIR="/run/media/nibir/elita/music/flacs"
 MIRROR_DIR="/home/nibir/media/music/opus"
 
 # Ensure the source exists so we don't do something stupid

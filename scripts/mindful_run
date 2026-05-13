@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# 1. Get the list of executables and let the user pick one (Standard dmenu)
+cmd=$(dmenu_path | dmenu -l 10 "$@")
+
+# 2. If no command was selected (Esc pressed), exit
+[ -z "$cmd" ] && exit
+
+# 3. Define 'Safe' apps that don't need a lecture
+if [[ "$cmd" =~ ^(st|alacritty|emacs|pcmanfm|thunar)$ ]]; then
+    exec $cmd
+    exit
+fi
+
+# 4. The Cognitive Speed Bump
+# We use dmenu again to ask for the reason.
+reason=$(echo "" | dmenu -p "🤔 Why are you opening $cmd?")
+
+# 5. Validation (Check if reason is long enough)
+if [ ${#reason} -lt 15 ]; then
+    notify-send "❌ DENIED" "Reason too short. Go back to math."
+    exit 1
+fi
+
+# 6. The Delay (The 'Skin' Breaker)
+# This forces the brain to switch from 'Impulsive' to 'Waiting'
+notify-send "⏳ Mindful Gap" "Opening $cmd in 5 seconds..."
+sleep 5
+
+# 7. Execute
+exec $cmd

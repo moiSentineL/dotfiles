@@ -31,12 +31,12 @@ yt-dlp "$LINK" \
   -o "%(title)s.%(ext)s" \
   -P "$DIR" \
   --merge-output-format mp4 \
-  --write-auto-sub \
-  --embed-subs \
   --embed-chapters \
-  --sub-lang en \
   --concurrent-fragments 1 \
   --external-downloader aria2c \
   --external-downloader-args "aria2c:-c -j 4 -x 16 -s 16 -k 2M --file-allocation=none" &> /dev/null \
 
+  #--write-auto-sub \
+  #--embed-subs \
+  #--sub-lang en \
 notify-send "Download Finished"
