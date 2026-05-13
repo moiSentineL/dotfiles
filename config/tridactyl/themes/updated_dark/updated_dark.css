@@ -1,0 +1,13 @@
+:root {
+	--tridactyl-font-family: 'EnvyCodeR Nerd Font';
+	--tridactyl-font-size: 12pt;
+	--tridactyl-bg: #141414;
+	--tridactyl-highlight: #C25C3C;
+	--tridactyl-focused-bg: #2F2F2F;
+	--tridactyl-fg: #E0D3B3;
+	--tridactyl-url: #4988BF;
+	--tridactyl-hint-fg: #FF774D;
+	
+	--tridactyl-cmdl-bg: var(--tridactyl-bg);
+	--tridactyl-cmdl-fg: var(--tridactyl-fg);
+}

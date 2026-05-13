@@ -1,0 +1,4 @@
+set hintchars arstneiodhqwfpluyzxcvbkmg
+
+bind --mode=ex <Up> ex.prev_completion
+bind --mode=ex <Down> ex.next_completion
