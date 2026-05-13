@@ -1,0 +1,40 @@
+general.import = [
+  "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
+# TERM
+[env]
+TERM = "xterm-256color"
+
+# Window
+[window]
+dynamic_padding = false
+
+[window.dimensions]
+columns = 95
+lines = 35
+
+[window.padding]
+x = 20
+y = 20
+
+# Font
+[font]
+size = 13
+
+[font.normal]
+family = "Pragmasevka Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "Pragmasevka Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "Pragmasevka Nerd Font"
+style = "Italic"
+
+[font.bold_italic]
+family = "Pragmasevka Nerd Font"
+style = "Bold Italic"
+
