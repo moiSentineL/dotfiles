@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+dunstify -u critical "Time to wind down" "Turning wifi off, muting media. 5 minutes."
+
+wifi off
+playerctl pause
+wpctl set-mute @DEFAULT_AUDIO_SINK@ 1
+
+sleep 3000
+
+dunstify "see ya"
+
+paplay -d alsa_output.pci-0000_07_00.6.HiFi__Speaker__sink ~/media/music/Windows-Startup-Sounds-MP3/Windows\ 2000\ Shutdown.mp3
+
+sleep 2
+
+systemctl suspend -i

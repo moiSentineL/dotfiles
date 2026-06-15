@@ -1,31 +1,39 @@
 #!/bin/bash
 
 width=30
-# 8:30 PM is 20:30. Total seconds: (20 * 3600) + (30 * 60) = 73800
-end_point=73800
 
+# Define boundaries in seconds from midnight
+start_point=$(( 7 * 3600 ))        # 07:00 AM = 25,200 seconds
+end_point=$((21 * 3600)) # 08:30 PM = 73,800 seconds
+total_window=$(( end_point - start_point ))
+
+# Get current time components and strip leading zeros safely
 h=$(date +%H); h=$((100$h % 100))
 m=$(date +%M); m=$((100$m % 100))
 s=$(date +%S); s=$((100$s % 100))
 
 current_seconds=$(( h * 3600 + m * 60 + s ))
 
-# Calculate percent, capped at 100
-if [ $current_seconds -ge $end_point ]; then
+# Calculate percentage based strictly on your active window
+if [ $current_seconds -le $start_point ]; then
+    percent=0
+elif [ $current_seconds -ge $end_point ]; then
     percent=100
 else
-    percent=$(( current_seconds * 100 / end_point ))
+    active_seconds=$(( current_seconds - start_point ))
+    percent=$(( active_seconds * 100 / total_window ))
 fi
 
-# Color logic: Red at 18:00 (6pm), Yellow at 15:00 (3pm)
-if [ $h -ge 17 ]; then
-    color="#FF5555"
+# Color logic based on actual time of day
+if [ $h -ge 18 ]; then
+    color="#FF5555" # Red after 6:00 PM (The final sprint)
 elif [ $h -ge 14 ]; then
-    color="#F1FA8C"
+    color="#F1FA8C" # Yellow after 2:00 PM (Mid-day warning)
 else
-    color="#50FA7B"
+    color="#50FA7B" # Green (Fresh start)
 fi
 
+# Bar rendering via string slicing
 filled=$(( percent * width / 100 ))
 empty=$(( width - filled ))
 

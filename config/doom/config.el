@@ -21,7 +21,7 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Pragmasevka Nerd Font" :size 18)
+(setq doom-font (font-spec :family "Iosevka" :size 18)
       doom-variable-pitch-font (font-spec :family "Atkinson Hyperlegible Next" :size 22)
       doom-big-font-increment 10)
 ;;
@@ -91,7 +91,13 @@
         org-capture-templates '(
           ("t" "Daily Capture" entry
            (file+headline "~/docs/org/inbox.org" "Inbox") ; Target the Inbox file
-         "* TODO %?\n  %i\n  %a"))
+         "* TODO %?\n  %i\n  %a")
+          ("b" "Blog Post" plain
+           (function my/blog-capture-template)
+           ""
+           :unnarrowed t
+           :jump-to-captured t)
+          )
         ))
 
 (use-package! org-modern
@@ -113,6 +119,7 @@
     ;; Org styling, hide markup etc.
     org-hide-emphasis-markers t
     org-pretty-entities t
+    org-support-shift-select t
     org-agenda-tags-column 0
     org-ellipsis "…")
 
@@ -212,7 +219,7 @@
 
 ;; -- projects
 
-(setq projectile-project-search-path '("~/.local/repos/" "~/docs/coding/"))
+(setq projectile-project-search-path '("~/.local/repos/" "~/docs/coding/" "~/docs/pages/"))
 
 ;; -- functions
 
@@ -232,6 +239,44 @@
                (nc (funcall map c)))
           (delete-char 1)
           (insert-char nc))))))
+
+(defun my/sanitize-filename (title)
+  (replace-regexp-in-string
+   "[/\\:*?\"<>|]" ""
+   (replace-regexp-in-string
+    "\\s+" "-"
+    (string-trim title))))
+
+(defun my/blog-capture-template ()
+  (let* ((title     (read-string "Post title: "))
+         (excerpt   (read-string "Excerpt: "))
+         (tags-raw  (read-string "Tags (space-separated): "))
+         (status    (completing-read "Status: " '("draft" "done" "published") nil t))
+         (hero      (read-string "Hero image (leave blank to skip): "))
+         (date-str  (format-time-string "%Y-%m-%dT%H:%M:%S"))
+         (tz-raw    (format-time-string "%z"))
+         ;; format +0530 → +05:30
+         (tz-str    (concat (substring tz-raw 0 3) ":" (substring tz-raw 3)))
+         (tags-yaml (mapconcat (lambda (tag) (concat "  - " tag))
+                               (split-string tags-raw " " t)
+                               "\n"))
+         (fname     (my/sanitize-filename title))
+         (filepath  (expand-file-name (concat fname ".md") my/blog-posts-dir)))
+    (find-file filepath)
+    (insert (format "---
+tags:
+%s
+excerpt: %s
+date: %s%s
+status: %s
+title: %s
+heroImage: %s
+---
+
+"
+                    tags-yaml excerpt date-str tz-str status title hero))))
+
+(defvar my/blog-posts-dir "~/.local/repos/website/src/blog/")
 
 
 ;; -- keybinds

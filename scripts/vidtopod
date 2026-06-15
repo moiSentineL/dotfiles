@@ -1,0 +1,5 @@
+#!/bin/bash
+
+base="${1%.*}"
+
+ffmpeg -i "$1" -vn -c:a copy "$base.opus"

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: UTC datetime
+# key: utcdt
+# binding: C-c u
+# --
+`(format-time-string "%Y-%m-%dT%H:%M:%SZ" nil t)`

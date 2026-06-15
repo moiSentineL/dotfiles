@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ── Config ────────────────────────────────────────────────────────────────────
-URL="https://cbseresults.nic.in/"           # ← change this
+URL="https://iiseradmission.in/"           # ← change this
 HASH_FILE="$HOME/.cache/site_monitor/last_hash"
 
 # ── Display & DBus (required for cron → desktop notifications) ────────────────
@@ -33,7 +33,8 @@ OLD_HASH=$(cat "$HASH_FILE")
 
 # ── Compare ───────────────────────────────────────────────────────────────────
 if [ "$NEW_HASH" != "$OLD_HASH" ]; then
-    echo "$NEW_HASH" > "$HASH_FILE"
+    echo "$NEW_HASH" > "$HASH_FILE" 
+    echo "changed!"
     dunstify "🔔 Site Updated" "$URL has changed." \
         --icon=software-update-available \
         -u critical \

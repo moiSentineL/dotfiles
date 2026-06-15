@@ -1,6 +1,6 @@
 yt-dlp "$1" \
   --external-downloader=aria2c \
-  --external-downloader-args '--min-split-size=1M --max-connection-per-server=16 --max-concurrent-downloads=16 --split=16' \
+  --external-downloader-args "aria2c:-c -j 4 -x 16 -s 16 -k 2M --file-allocation=none" \
   --playlist-items $2-$3 \
   -o "%(playlist_index)s - %(title)s.%(ext)s" \
   --download-archive archive.txt \

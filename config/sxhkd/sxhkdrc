@@ -12,8 +12,8 @@ super + Return
 
 # program launcher
 super + @space
-#	dmenu_run -l 10
-    ~/.dotfiles/scripts/mindful_run
+	dmenu_run -l 10
+#    ~/.dotfiles/scripts/mindful_run
 # node selector
 super + grave
       ~/.dotfiles/scripts/shortcuts/node_selector

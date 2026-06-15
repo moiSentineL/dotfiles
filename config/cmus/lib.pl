@@ -1,25 +1,3 @@
-cue:///home/nibir/Music/Sorted/Nirvana/In Utero (1993)/Nirvana - In Utero.cue/1
-cue:///home/nibir/Music/Sorted/Nirvana/Nevermind (1991)/Nirvana - Nevermind.cue/1
-cue:///home/nibir/Music/Sorted/Nirvana/In Utero (1993)/Nirvana - In Utero.cue/2
-cue:///home/nibir/Music/Sorted/Nirvana/Nevermind (1991)/Nirvana - Nevermind.cue/2
-cue:///home/nibir/Music/Sorted/Nirvana/In Utero (1993)/Nirvana - In Utero.cue/3
-cue:///home/nibir/Music/Sorted/Nirvana/Nevermind (1991)/Nirvana - Nevermind.cue/3
-cue:///home/nibir/Music/Sorted/Nirvana/In Utero (1993)/Nirvana - In Utero.cue/4
-cue:///home/nibir/Music/Sorted/Nirvana/Nevermind (1991)/Nirvana - Nevermind.cue/4
-cue:///home/nibir/Music/Sorted/Nirvana/In Utero (1993)/Nirvana - In Utero.cue/5
-cue:///home/nibir/Music/Sorted/Nirvana/Nevermind (1991)/Nirvana - Nevermind.cue/5
-cue:///home/nibir/Music/Sorted/Nirvana/In Utero (1993)/Nirvana - In Utero.cue/6
-cue:///home/nibir/Music/Sorted/Nirvana/Nevermind (1991)/Nirvana - Nevermind.cue/6
-cue:///home/nibir/Music/Sorted/Nirvana/In Utero (1993)/Nirvana - In Utero.cue/7
-cue:///home/nibir/Music/Sorted/Nirvana/Nevermind (1991)/Nirvana - Nevermind.cue/7
-cue:///home/nibir/Music/Sorted/Nirvana/In Utero (1993)/Nirvana - In Utero.cue/8
-cue:///home/nibir/Music/Sorted/Nirvana/Nevermind (1991)/Nirvana - Nevermind.cue/8
-cue:///home/nibir/Music/Sorted/Nirvana/In Utero (1993)/Nirvana - In Utero.cue/9
-cue:///home/nibir/Music/Sorted/Nirvana/Nevermind (1991)/Nirvana - Nevermind.cue/9
-cue:///home/nibir/Music/Sorted/Nirvana/In Utero (1993)/Nirvana - In Utero.cue/10
-cue:///home/nibir/Music/Sorted/Nirvana/Nevermind (1991)/Nirvana - Nevermind.cue/10
-cue:///home/nibir/Music/Sorted/Nirvana/In Utero (1993)/Nirvana - In Utero.cue/11
-cue:///home/nibir/Music/Sorted/Nirvana/Nevermind (1991)/Nirvana - Nevermind.cue/11
 cue:///home/nibir/Music/Sorted/Nirvana/In Utero (1993)/Nirvana - In Utero.cue/12
 cue:///home/nibir/Music/Sorted/Nirvana/Nevermind (1991)/Nirvana - Nevermind.cue/12
 /home/nibir/Music/Sorted/ACDC/Back in Black (1980)/01 Hells Bells.flac
@@ -663,27 +641,16 @@ cue:///home/nibir/Music/Sorted/Nirvana/Nevermind (1991)/Nirvana - Nevermind.cue/
 /home/nibir/Music/Sorted/Incubus/Morning View (2001)/11 Incubus - Are You In_.flac
 /home/nibir/Music/Sorted/Incubus/Morning View (2001)/12 Incubus - Under My Umbrella.flac
 /home/nibir/Music/Sorted/Incubus/Morning View (2001)/13 Incubus - Aqueous Transmission.flac
-cue:///home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/Jerry Cantrell - Boggy Depot.cue/1
 /home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/01. Dickeye.flac
-cue:///home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/Jerry Cantrell - Boggy Depot.cue/2
 /home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/02. Cut You In.flac
-cue:///home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/Jerry Cantrell - Boggy Depot.cue/3
 /home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/03. My Song.flac
-cue:///home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/Jerry Cantrell - Boggy Depot.cue/4
 /home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/04. Settling Down.flac
-cue:///home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/Jerry Cantrell - Boggy Depot.cue/5
 /home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/05. Breaks My Back.flac
-cue:///home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/Jerry Cantrell - Boggy Depot.cue/6
 /home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/06. Jesus Hands.flac
-cue:///home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/Jerry Cantrell - Boggy Depot.cue/7
 /home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/07. Devil By His Side.flac
-cue:///home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/Jerry Cantrell - Boggy Depot.cue/8
 /home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/08. Keep The Light On.flac
-cue:///home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/Jerry Cantrell - Boggy Depot.cue/9
 /home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/09. Satisfy.flac
-cue:///home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/Jerry Cantrell - Boggy Depot.cue/10
 /home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/10. Hurt A Long Time.flac
-cue:///home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/Jerry Cantrell - Boggy Depot.cue/11
 /home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/11. Between.flac
 cue:///home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/Jerry Cantrell - Boggy Depot.cue/12
 /home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/12. Cold Piece.flac
@@ -971,22 +938,14 @@ cue:///home/nibir/Music/Sorted/Jerry Cantrell/Boggy Depot (1998)/Jerry Cantrell 
 /home/nibir/Music/Sorted/Local H/As Good as Dead (1996)/Local H_As Good as Dead_1-11_Fritz’s Corner.flac
 /home/nibir/Music/Sorted/Local H/As Good as Dead (1996)/Local H_As Good as Dead_1-12_O.K.flac
 /home/nibir/Music/Sorted/Local H/As Good as Dead (1996)/Local H_As Good as Dead_1-13_Manifest Density, Part 2.flac
-cue:///home/nibir/Music/Sorted/Mad Season/Above (1995)/Mad Season - Above.cue/1
 /home/nibir/Music/Sorted/Mad Season/Above (1995)/01. Wake Up.flac
-cue:///home/nibir/Music/Sorted/Mad Season/Above (1995)/Mad Season - Above.cue/2
 /home/nibir/Music/Sorted/Mad Season/Above (1995)/02. X‐Ray Mind.flac
-cue:///home/nibir/Music/Sorted/Mad Season/Above (1995)/Mad Season - Above.cue/3
 /home/nibir/Music/Sorted/Mad Season/Above (1995)/03. River of Deceit.flac
 /home/nibir/Music/Sorted/Mad Season/Above (1995)/04. I’m Above.flac
-cue:///home/nibir/Music/Sorted/Mad Season/Above (1995)/Mad Season - Above.cue/5
 /home/nibir/Music/Sorted/Mad Season/Above (1995)/05. Artificial Red.flac
-cue:///home/nibir/Music/Sorted/Mad Season/Above (1995)/Mad Season - Above.cue/6
 /home/nibir/Music/Sorted/Mad Season/Above (1995)/06. Lifeless Dead.flac
-cue:///home/nibir/Music/Sorted/Mad Season/Above (1995)/Mad Season - Above.cue/7
 /home/nibir/Music/Sorted/Mad Season/Above (1995)/07. I Don’t Know Anything.flac
-cue:///home/nibir/Music/Sorted/Mad Season/Above (1995)/Mad Season - Above.cue/8
 /home/nibir/Music/Sorted/Mad Season/Above (1995)/08. Long Gone Day.flac
-cue:///home/nibir/Music/Sorted/Mad Season/Above (1995)/Mad Season - Above.cue/9
 /home/nibir/Music/Sorted/Mad Season/Above (1995)/09. November Hotel.flac
 cue:///home/nibir/Music/Sorted/Mad Season/Above (1995)/Mad Season - Above.cue/10
 /home/nibir/Music/Sorted/Mad Season/Above (1995)/10. All Alone.flac

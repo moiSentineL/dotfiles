@@ -1,0 +1,18 @@
+directory: /home/nibir/media/music/opus
+
+import:
+  copy: no
+  move: no
+  write: no
+
+plugins: fetchart embedart
+
+fetchart:
+  auto: yes
+  sources: filesystem itunes coverartarchive wikipedia
+  maxwidth: 1000
+
+embedart:
+  auto: yes
+  ifempty: yes
+  maxwidth: 1000

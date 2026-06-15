@@ -59,9 +59,6 @@ easyeffects --gapplication-service &
 ## safeeyes
 safeeyes --gapplication-service &
 
-## espanso
-espanso &
-
 ## udiskie
 udiskie &
 

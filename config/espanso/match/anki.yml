@@ -19,7 +19,10 @@ matches:
   - trigger: ";ce"
     replace: "\\(\\ce{$|$}\\)"
 
-  - trigger: ";text"
+  - trigger: ";cc"
+    replace: "\\ce{$|$}"
+
+  - trigger: ";txt"
     replace: "\\text{$|$}"
 
   - trigger: ";sum"

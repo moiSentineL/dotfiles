@@ -31,38 +31,77 @@ settings:
         l: undo
         n: scroll left
         u: scroll up
+  colors.tabs.selected.even.bg:
+    global: '#1e1e2e'
   colors.webpage.bg:
     global: null
   colors.webpage.darkmode.algorithm:
     global: lightness-hsl
   colors.webpage.darkmode.enabled:
     global: true
+  colors.webpage.darkmode.policy.images:
+    global: smart
+  colors.webpage.darkmode.policy.page:
+    global: smart
   colors.webpage.preferred_color_scheme:
     global: dark
   content.blocking.adblock.lists:
     global:
     - https://easylist.to/easylist/easylist.txt
     - https://easylist.to/easylist/easyprivacy.txt
-    - https://raw.githubusercontent.com/DWW256/distracting-websites/refs/heads/main/distracting-websites.txt
+  content.blocking.enabled:
+    global: true
   content.blocking.method:
     global: both
+  content.blocking.whitelist:
+    global: null
   content.headers.user_agent:
-    global: Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko)
-      {upstream_browser_key}/{upstream_browser_version_short} Safari/{webkit_version}
+    global: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)
+      Chrome/120 Safari/537.36
     https://accounts.google.com/*: Mozilla/5.0 ({os_info}; rv:131.0) Gecko/20100101
       Firefox/131.0
   content.javascript.clipboard:
     https://chatgpt.com: access-paste
     https://github.com: access-paste
     https://search.brave.com: access-paste
+  content.media.audio_capture:
+    https://chatgpt.com: true
+    https://discord.com: true
+  content.media.video_capture:
+    global: ask
+    https://discord.com: true
+  content.notifications.enabled:
+    https://web.tolstoycomments.com: false
+    https://www.youtube.com: false
+  content.pdfjs:
+    global: false
+  downloads.remove_finished:
+    global: 15000
+  editor.command:
+    global:
+    - nvim
+    - -f
+    - '{file}'
+    - -c
+    - normal {line}G{column0}l
   input.insert_mode.auto_enter:
     global: true
   input.insert_mode.auto_load:
     global: true
+  scrolling.smooth:
+    global: false
+  statusbar.position:
+    global: bottom
+  statusbar.show:
+    global: always
+  tabs.favicons.scale:
+    global: 0.8
+  tabs.favicons.show:
+    global: always
   url.default_page:
-    global: https://search.brave.com
+    global: https://nibirsan.org/search
   url.searchengines:
     global:
       DEFAULT: https://search.brave.com/search?q={}
   url.start_pages:
-    global: https://search.brave.com
+    global: https://nibirsan.org/search

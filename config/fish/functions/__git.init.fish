@@ -46,6 +46,7 @@ function __git.init
   __git.create_abbr gcm        git commit -m
   __git.create_abbr gcam       git commit -a -m
   __git.create_abbr gcs        git commit -S
+  __git.create_abbr gcs!       git commit -S --amend
   __git.create_abbr gscam      git commit -S -a -m
   __git.create_abbr gcfx       git commit --fixup
   __git.create_abbr gcf        git config --list
@@ -85,6 +86,7 @@ function __git.init
   __git.create_abbr glod       git log --oneline --decorate --color develop..
   __git.create_abbr gloo       "git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short"
   __git.create_abbr gm         git merge
+  __git.create_abbr gma        git merge --abort
   __git.create_abbr gmt        git mergetool --no-prompt
   __git.create_abbr gmom       git merge origin/\(__git.default_branch\)
   __git.create_abbr gp         git push
@@ -150,15 +152,23 @@ function __git.init
   __git.create_abbr gswc       git switch --create
   __git.create_abbr gunignore  git update-index --no-assume-unchanged
   __git.create_abbr gup        git pull --rebase
+  __git.create_abbr gpr        git pull --rebase
   __git.create_abbr gupv       git pull --rebase -v
+  __git.create_abbr gprv       git pull --rebase -v
   __git.create_abbr gupa       git pull --rebase --autostash
+  __git.create_abbr gpra       git pull --rebase --autostash
   __git.create_abbr gupav      git pull --rebase --autostash -v
-  __git.create_abbr gwch       git whatchanged -p --abbrev-commit --pretty=medium
+  __git.create_abbr gprav      git pull --rebase --autostash -v
+  __git.create_abbr gprom      git pull --rebase origin \(__git.default_branch\)
+  __git.create_abbr gpromi     git pull --rebase=interactive origin \(__git.default_branch\)
+  __git.create_abbr gprum      git pull --rebase upstream \(__git.default_branch\)
+  __git.create_abbr gprumi     git pull --rebase=interactive upstream \(__git.default_branch\)
+  __git.create_abbr gwch       git log -p --abbrev-commit --pretty=medium --raw --no-merges
 
   # git checkout abbreviations
   __git.create_abbr gco        git checkout
   __git.create_abbr gcb        git checkout -b
-  __git.create_abbr gcod       git checkout develop
+  __git.create_abbr gcod       git checkout \(__git.develop_branch\)
   __git.create_abbr gcom       git checkout \(__git.default_branch\)
 
   # git flow abbreviations
