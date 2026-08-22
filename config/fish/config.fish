@@ -51,3 +51,5 @@ end
 # # Initial Bind
 # bind \r mindful_enter
 # bind \n mindful_enter
+
+[ -s "/home/nibir/.jabba/jabba.fish" ]; and source "/home/nibir/.jabba/jabba.fish"

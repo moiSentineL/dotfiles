@@ -1,0 +1,27 @@
+[theme]
+theme = "native"
+
+[[block]]
+block = "custom"
+command = "cat ~/song"
+interval = "once"
+signal = 1
+
+[[block]]
+block = "battery"
+format = " <span foreground='#88c0d0'>BAT</span> $percentage "
+not_charging_format = " <span foreground='#88c0d0'>BAT</span> =$percentage "
+full_format = " <span foreground='#88c0d0'>BAT</span> =100% "
+
+[[block]]
+block = "sound"
+format = " <span foreground='#88c0d0'>VOL</span> {$volume|MUTED} "
+
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "time"
+interval = 60
+format = " $timestamp.datetime(f:'%a %d-%m %R') "

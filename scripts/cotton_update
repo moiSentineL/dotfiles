@@ -1,31 +1,44 @@
 #!/bin/bash
+set -euo pipefail
 
 # ── Config ────────────────────────────────────────────────────────────────────
-URL="https://iiseradmission.in/"           # ← change this
+URL="https://cottonuniversity.ac.in/index_news_category.php?c=MUljT1hDYVNsZ1hMWm9uSlBvQ09pUT09"   # ← page to watch
 HASH_FILE="$HOME/.cache/site_monitor/last_hash"
+LOG_FILE="$HOME/.cache/site_monitor/site_monitor.log"
 
-# ── Display & DBus (required for cron → desktop notifications) ────────────────
-export DISPLAY=:0
-DBUS_FILE="/run/user/$(id -u)/bus"
-if [ -S "$DBUS_FILE" ]; then
-    export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_FILE"
-fi
+# ntfy config — point at your remote ntfy instance
+NTFY_URL="https://ntfy.envs.net"     # ← change this (or https://ntfy.sh)
+NTFY_TOPIC="cotton_college_updates"                       # ← change this to your own topic
+NTFY_TOKEN=""                                   # ← optional: access token if your ntfy requires auth
 
 # ── Setup ─────────────────────────────────────────────────────────────────────
 mkdir -p "$(dirname "$HASH_FILE")"
+
+log() {
+    echo "$(date -Iseconds) $*" >> "$LOG_FILE"
+}
+
+notify() {
+    local title="$1" message="$2" priority="${3:-default}" tags="${4:-}"
+    local args=(-s "$NTFY_URL/$NTFY_TOPIC" -H "Title: $title" -H "Priority: $priority")
+    [ -n "$tags" ] && args+=(-H "Tags: $tags")
+    [ -n "$NTFY_TOKEN" ] && args+=(-H "Authorization: Bearer $NTFY_TOKEN")
+    curl "${args[@]}" -d "$message" >/dev/null 2>&1 || log "WARN: ntfy push failed"
+}
 
 # ── Fetch & hash ──────────────────────────────────────────────────────────────
 NEW_HASH=$(curl -s --max-time 15 "$URL" | sha256sum | cut -d' ' -f1)
 
 if [ -z "$NEW_HASH" ]; then
-    notify-send "Site Monitor" "⚠️ Could not reach $URL" \
-        --icon=network-error --urgency=low
+    log "ERROR: could not reach $URL"
+    notify "Site Monitor" "⚠️ Could not reach $URL" "high" "warning"
     exit 1
 fi
 
 # ── First run: save hash and exit quietly ─────────────────────────────────────
 if [ ! -f "$HASH_FILE" ]; then
     echo "$NEW_HASH" > "$HASH_FILE"
+    log "INFO: first run, baseline hash saved"
     exit 0
 fi
 
@@ -33,12 +46,9 @@ OLD_HASH=$(cat "$HASH_FILE")
 
 # ── Compare ───────────────────────────────────────────────────────────────────
 if [ "$NEW_HASH" != "$OLD_HASH" ]; then
-    echo "$NEW_HASH" > "$HASH_FILE" 
-    echo "changed!"
-    dunstify "🔔 Site Updated" "$URL has changed." \
-        --icon=software-update-available \
-        -u critical \
-        -t 15000
+    echo "$NEW_HASH" > "$HASH_FILE"
+    log "INFO: change detected ($OLD_HASH -> $NEW_HASH)"
+    notify "🔔 New Cotton Update" "Student's Corner has changed." "urgent" "bell"
+else
+    log "INFO: no change"
 fi
-
-# No notification if unchanged — silent exit

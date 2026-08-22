@@ -13,7 +13,7 @@ title=`cmus-remote -Q  |
 	sed -e 's/tag title //' |
 	awk '{gsub("tag title ", "");print}'`
 
-	echo "$artist - $title"
+	echo "♫ $artist - $title"
 else
 	echo " "
 fi

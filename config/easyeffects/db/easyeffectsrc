@@ -2,19 +2,20 @@
 lastLoadedOutputPreset=main
 
 [StreamInputs]
-inputDevice=alsa_input.pci-0000_07_00.6.HiFi__Mic1__source
+inputDevice=alsa_input.usb-BurrBrown_from_Texas_Instruments_USB_AUDIO_CODEC-00.analog-stereo
 
 [StreamOutputs]
 blocklist=REAPER
 mostUsedPresets=main
-outputDevice=alsa_output.usb-Shanling_UA1_Pro_Shanling_UA1_Pro_Shanling_UA1_Pro-00.pro-output-0
+outputDevice=alsa_output.usb-BurrBrown_from_Texas_Instruments_USB_AUDIO_CODEC-00.analog-stereo
 plugins=equalizer#0
-usedPresets=main:5
+usedPresets=main:48
 visiblePage=pluginsPage
 visiblePlugin=equalizer#0
 
 [Window]
-height=1027
+autostartOnLogin=true
+height=1052
 visiblePipeWirePage=modulesPage
 visiblePresetSheetPage=autoloadingPage
-width=1892
+width=1918

@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: Blog Headers
+# uuid:
+# key: blog-headers
+# condition: t
+# --
+---
+title:
+excerpt:
+date:
+---

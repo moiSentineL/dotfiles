@@ -33,7 +33,7 @@
     origin = top-right
 
     # Offset from the origin
-    offset = 14x44
+    offset = 14x14
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -83,7 +83,7 @@
     padding = 8
 
     # Horizontal padding.
-    horizontal_padding = 8
+    horizontal_padding = 10
 
     # Padding between text and icon.
     text_icon_padding = 0

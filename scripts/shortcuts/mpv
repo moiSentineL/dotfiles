@@ -4,9 +4,15 @@
 
 FOLDER=$HOME/tmp/vids/
 
+# for x11 / bspwm
+# openvid () { \
+#   NAME="$(echo "$(command ls -t $FOLDER)" | dmenu -i -l 10)" || exit 0
+#   mpv "$FOLDER$NAME" >/dev/null 2>&1
+# }
+
+# sway / wayland
 openvid () { \
-  NAME="$(echo "$(command ls -t $FOLDER)" | dmenu -i -l 10)" || exit 0
+  NAME="$(echo "$(command ls -t $FOLDER)" | fuzzel --dmenu --prompt="vid>" -w 80)" || exit 0
   mpv "$FOLDER$NAME" >/dev/null 2>&1
 }
-
 openvid

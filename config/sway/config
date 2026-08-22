@@ -1,0 +1,24 @@
+#    ______      ______ ___  ____  ____  ____  ____  __
+#   / ___/ | /| / / __ `/ / / / / / / / / / / / / / / /
+#  (__  )| |/ |/ / /_/ / /_/ / /_/ / /_/ / /_/ / /_/ /
+# /____/ |__/|__/\__,_/\__, /\__, /\__, /\__, /\__, /
+#                     /____//____//____//____//____/
+
+include ~/.config/sway/config.d/*
+
+
+## Autostart
+#exec easyeffects --gapplication-service
+
+#exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+#exec systemctl --user start graphical-session.target
+
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP=sway
+exec systemctl --user start sway-session.service
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec systemctl --user start xdg-desktop-portal-wlr xdg-desktop-portal
+exec safeeyes --gapplication-service
+exec gammastep
+exec udiskie
+exec_always kanshi
+exec env RUST_BACKTRACE=1 RUST_LOG=swayr=debug swayrd > /tmp/swayrd.log 2>&1

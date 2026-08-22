@@ -35,8 +35,8 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-sourcerer)
 
-(set-frame-parameter nil 'alpha-background 85) ; For current frame
-(add-to-list 'default-frame-alist '(alpha-background . 85)) ; For all new frames henceforth
+(set-frame-parameter nil 'alpha-background 88) ; For current frame
+(add-to-list 'default-frame-alist '(alpha-background . 88)) ; For all new frames henceforth
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -193,7 +193,11 @@
 ;;                   "#+title: %<%Y-%m-%d>\n")
 ;;          :immediate-finish t
 ;;          :unnarrowed t)))
- 
+
+;; (use-package! evil-colemak-basics
+;;   :after evil
+;;   :config
+;;   (global-evil-colemak-basics-mode 1))
 
 (use-package! org-download
   :after org
@@ -219,7 +223,7 @@
 
 ;; -- projects
 
-(setq projectile-project-search-path '("~/.local/repos/" "~/docs/coding/" "~/docs/pages/"))
+(setq projectile-project-search-path '("~/.local/repos/" "~/docs/coding/" "~/docs/pages/" "~/.local/src/"))
 
 ;; -- functions
 
@@ -276,7 +280,7 @@ heroImage: %s
 "
                     tags-yaml excerpt date-str tz-str status title hero))))
 
-(defvar my/blog-posts-dir "~/.local/repos/website/src/blog/")
+(defvar my/blog-posts-dir "~/docs/pages/src/writings/short/")
 
 
 ;; -- keybinds
